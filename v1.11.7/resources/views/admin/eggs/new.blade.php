@@ -105,7 +105,7 @@
                             <div class="form-group">
                                 <label for="pConfigLogs" class="form-label">日誌組態</label>
                                 <textarea data-action="handle-tabs" id="pConfigLogs" name="config_logs" class="form-control" rows="6">{{ old('config_logs') }}</textarea>
-                                <p class="text-muted small">這應該是日誌檔案儲存位置的 JSON 表示，以及守護程序是否應建立自訂日誌。</p>
+                                <p class="text-muted small">這應該是日誌檔案儲存位置的 JSON 表示，以及Wings是否應建立自訂日誌。</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -117,7 +117,7 @@
                             <div class="form-group">
                                 <label for="pConfigStartup" class="form-label">啟動組態</label>
                                 <textarea data-action="handle-tabs" id="pConfigStartup" name="config_startup" class="form-control" rows="6">{{ old('config_startup') }}</textarea>
-                                <p class="text-muted small">這應該是守護程序在啟動伺服器以確定完成時應尋找的值的 JSON 表示。</p>
+                                <p class="text-muted small">這應該是Wings在啟動伺服器以確定完成時應尋找的值的 JSON 表示。</p>
                             </div>
                         </div>
                     </div>

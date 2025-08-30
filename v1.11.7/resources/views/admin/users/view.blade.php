@@ -92,8 +92,8 @@
                         <label for="root_admin" class="control-label">管理員</label>
                         <div>
                             <select name="root_admin" class="form-control">
-                                <option value="0">@lang('strings.no')</option>
-                                <option value="1" {{ $user->root_admin ? 'selected="selected"' : '' }}>@lang('strings.yes')</option>
+                                <option value="0">否</option>
+                                <option value="1" {{ $user->root_admin ? 'selected="selected"' : '' }}>是</option>
                             </select>
                             <p class="text-muted"><small>將此設定為「是」會授予使用者完整的管理存取權限。</small></p>
                         </div>

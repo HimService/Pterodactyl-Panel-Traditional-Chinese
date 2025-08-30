@@ -71,7 +71,7 @@
                         <div>
                             <input type="text" autocomplete="off" name="fqdn" class="form-control" value="{{ old('fqdn', $node->fqdn) }}" />
                         </div>
-                        <p class="text-muted"><small>請輸入用於連接到守護程序的網域名稱 (例如 <code>node.example.com</code>)。僅當您不為此節點使用 SSL 時，才可以使用 IP 位址。
+                        <p class="text-muted"><small>請輸入用於連接到Wings的網域名稱 (例如 <code>node.example.com</code>)。僅當您不為此節點使用 SSL 時，才可以使用 IP 位址。
                                 <a tabindex="0" data-toggle="popover" data-trigger="focus" title="為什麼我需要 FQDN？" data-content="為了保護您的伺服器與此節點之間的通訊，我們使用 SSL。我們無法為 IP 位址產生 SSL 憑證，因此您需要提供 FQDN。">為什麼？</a>
                             </small></p>
                     </div>
@@ -101,7 +101,7 @@
                                 <label for="pProxyTrue"> 位於代理之後 </label>
                             </div>
                         </div>
-                        <p class="text-muted small">如果您在 Cloudflare 等代理之後執行守護程序，請選擇此項以讓守護程序在啟動時跳過尋找憑證。</p>
+                        <p class="text-muted small">如果您在 Cloudflare 等代理之後執行Wings，請選擇此項以讓Wings在啟動時跳過尋找憑證。</p>
                     </div>
                     <div class="form-group col-xs-12">
                         <label class="form-label"><span class="label label-warning"><i class="fa fa-wrench"></i></span> 維護模式</label>
@@ -162,7 +162,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-muted small">輸入此節點上可用於伺服器分配的總磁碟空間量。您也可以提供一個百分比，以決定允許超過設定限制的磁碟空間量。</p>
+                        <p class="text-muted small">輸入此節點上可用於伺服器分配的總儲存空間量。您也可以提供一個百分比，以決定允許超過設定限制的磁碟空間量。</p>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
         <div class="col-sm-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">一般組態</h3>
+                    <h3 class="box-title">基礎設置</h3>
                 </div>
                 <div class="box-body row">
                     <div class="form-group col-xs-12">
@@ -184,13 +184,13 @@
                     <div class="col-xs-12">
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="daemonListen" class="control-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span> 守護程序連接埠</label>
+                                <label for="daemonListen" class="control-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span> Wings連接埠</label>
                                 <div>
                                     <input type="text" name="daemonListen" class="form-control" value="{{ old('daemonListen', $node->daemonListen) }}"/>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="daemonSFTP" class="control-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span> 守護程序 SFTP 連接埠</label>
+                                <label for="daemonSFTP" class="control-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span> Wings SFTP 連接埠</label>
                                 <div>
                                     <input type="text" name="daemonSFTP" class="form-control" value="{{ old('daemonSFTP', $node->daemonSFTP) }}"/>
                                 </div>
@@ -198,7 +198,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <p class="text-muted"><small>守護程序執行自己的 SFTP 管理容器，不使用主實體伺服器上的 SSHd 程序。<Strong>請勿使用您為實體伺服器的 SSH 程序指派的相同連接埠。</strong></small></p>
+                                <p class="text-muted"><small>Wings執行自己的 SFTP 管理容器，不使用主實體伺服器上的 SSHd 程序。<Strong>請勿使用您為實體伺服器的 SSH 程序指派的相同連接埠。</strong></small></p>
                             </div>
                         </div>
                     </div>
@@ -213,9 +213,9 @@
                 <div class="box-body row">
                     <div class="form-group col-sm-6">
                         <div>
-                            <input type="checkbox" name="reset_secret" id="reset_secret" /> <label for="reset_secret" class="control-label">重設守護程序主金鑰</label>
+                            <input type="checkbox" name="reset_secret" id="reset_secret" /> <label for="reset_secret" class="control-label">重設Wings主金鑰</label>
                         </div>
-                        <p class="text-muted"><small>重設守護程序主金鑰將使來自舊金鑰的任何請求失效。此金鑰用於守護程序上的所有敏感操作，包括伺服器建立和刪除。我們建議定期更換此金鑰以確保安全。</small></p>
+                        <p class="text-muted"><small>重設Wings主金鑰將使來自舊金鑰的任何請求失效。此金鑰用於Wings上的所有敏感操作，包括伺服器建立和刪除。我們建議定期更換此金鑰以確保安全。</small></p>
                     </div>
                 </div>
                 <div class="box-footer">

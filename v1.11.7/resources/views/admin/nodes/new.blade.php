@@ -57,7 +57,7 @@
                     <div class="form-group">
                         <label for="pFQDN" class="form-label">FQDN</label>
                         <input type="text" name="fqdn" id="pFQDN" class="form-control" value="{{ old('fqdn') }}"/>
-                        <p class="text-muted small">請輸入用於連接到守護程序的網域名稱 (例如 <code>node.example.com</code>)。<em>僅當</em>您不為此節點使用 SSL 時，才可以使用 IP 位址。</p>
+                        <p class="text-muted small">請輸入用於連接到Wings的網域名稱 (例如 <code>node.example.com</code>)。<em>僅當</em>您不為此節點使用 SSL 時，才可以使用 IP 位址。</p>
                     </div>
                     <div class="form-group">
                         <label class="form-label">透過 SSL 通訊</label>
@@ -89,7 +89,7 @@
                                 <label for="pProxyTrue"> 位於代理之後 </label>
                             </div>
                         </div>
-                        <p class="text-muted small">如果您在 Cloudflare 等代理之後執行守護程序，請選擇此項以讓守護程序在啟動時跳過尋找憑證。</p>
+                        <p class="text-muted small">如果您在 Cloudflare 等代理之後執行Wings，請選擇此項以讓Wings在啟動時跳過尋找憑證。</p>
                     </div>
                 </div>
             </div>
@@ -97,12 +97,12 @@
         <div class="col-sm-6">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">組態</h3>
+                    <h3 class="box-title">配置</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="pDaemonBase" class="form-label">守護程序伺服器檔案目錄</label>
+                            <label for="pDaemonBase" class="form-label">Wings伺服器檔案目錄</label>
                             <input type="text" name="daemonBase" id="pDaemonBase" class="form-control" value="/var/lib/pterodactyl/volumes" />
                             <p class="text-muted small">輸入應儲存伺服器檔案的目錄。<strong>如果您使用 OVH，您應該檢查您的分割區配置。您可能需要使用 <code>/home/daemon-data</code> 才能有足夠的空間。</strong></p>
                         </div>
@@ -126,34 +126,34 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="pDisk" class="form-label">總磁碟空間</label>
+                            <label for="pDisk" class="form-label">總儲存空間</label>
                             <div class="input-group">
                                 <input type="text" name="disk" data-multiplicator="true" class="form-control" id="pDisk" value="{{ old('disk') }}"/>
                                 <span class="input-group-addon">MiB</span>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="pDiskOverallocate" class="form-label">磁碟超額分配</label>
+                            <label for="pDiskOverallocate" class="form-label">儲存空間超額分配</label>
                             <div class="input-group">
                                 <input type="text" name="disk_overallocate" class="form-control" id="pDiskOverallocate" value="{{ old('disk_overallocate') }}"/>
                                 <span class="input-group-addon">%</span>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <p class="text-muted small">輸入可用於新伺服器的總磁碟空間量。如果您想允許磁碟空間超額分配，請輸入您要允許的百分比。若要停用超額分配檢查，請在欄位中輸入 <code>-1</code>。輸入 <code>0</code> 將防止在節點超出限制時建立新伺服器。</p>
+                            <p class="text-muted small">輸入可用於新伺服器的總儲存空間量。如果您想允許磁碟空間超額分配，請輸入您要允許的百分比。若要停用超額分配檢查，請在欄位中輸入 <code>-1</code>。輸入 <code>0</code> 將防止在節點超出限制時建立新伺服器。</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="pDaemonListen" class="form-label">守護程序連接埠</label>
+                            <label for="pDaemonListen" class="form-label">Wings連接埠</label>
                             <input type="text" name="daemonListen" class="form-control" id="pDaemonListen" value="8080" />
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="pDaemonSFTP" class="form-label">守護程序 SFTP 連接埠</label>
+                            <label for="pDaemonSFTP" class="form-label">Wings SFTP 連接埠</label>
                             <input type="text" name="daemonSFTP" class="form-control" id="pDaemonSFTP" value="2022" />
                         </div>
                         <div class="col-md-12">
-                            <p class="text-muted small">守護程序執行自己的 SFTP 管理容器，不使用主實體伺服器上的 SSHd 程序。<Strong>請勿使用您為實體伺服器的 SSH 程序指派的相同連接埠。</strong>如果您將在 CloudFlare&reg; 之後執行守護程序，您應將守護程序連接埠設定為 <code>8443</code> 以允許透過 SSL 進行 websocket 代理。</p>
+                            <p class="text-muted small">Wings執行自己的 SFTP 管理容器，不使用主實體伺服器上的 SSHd 程序。<Strong>請勿使用您為實體伺服器的 SSH 程序指派的相同連接埠。</strong>如果您將在 CloudFlare&reg; 之後執行Wings，您應將Wings連接埠設定為 <code>8443</code> 以允許透過 SSL 進行 websocket 代理。</p>
                         </div>
                     </div>
                 </div>

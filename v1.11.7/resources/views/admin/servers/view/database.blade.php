@@ -23,7 +23,7 @@
         </div>
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">活動中的資料庫</h3>
+                <h3 class="box-title">使用中的資料庫</h3>
             </div>
             <div class="box-body table-responsible no-padding">
                 <table class="table table-hover">

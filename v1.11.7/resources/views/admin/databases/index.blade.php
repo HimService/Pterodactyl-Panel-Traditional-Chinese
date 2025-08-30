@@ -73,7 +73,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="pHost" class="form-label">主機</label>
+                            <label for="pHost" class="form-label">主機連線位置</label>
                             <input type="text" name="host" id="pHost" class="form-control" />
                             <p class="text-muted small">嘗試<em>從面板</em>連線到此 MySQL 主機以新增資料庫時應使用的 IP 位址或 FQDN。</p>
                         </div>

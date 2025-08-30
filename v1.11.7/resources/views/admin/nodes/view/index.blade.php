@@ -38,7 +38,7 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <td>守護程序版本</td>
+                                <td>Wings版本</td>
                                 <td><code data-attr="info-version"><i class="fa fa-refresh fa-fw fa-spin"></i></code> (最新版本：<code>{{ $version->getDaemon() }}</code>)</td>
                             </tr>
                             <tr>
@@ -106,7 +106,7 @@
                         <div class="info-box bg-{{ $stats['disk']['css'] }}">
                             <span class="info-box-icon"><i class="ion ion-ios-folder-outline"></i></span>
                             <div class="info-box-content" style="padding: 15px 10px 0;">
-                                <span class="info-box-text">已分配磁碟空間</span>
+                                <span class="info-box-text">已分配儲存空間</span>
                                 <span class="info-box-number">{{ $stats['disk']['value'] }} / {{ $stats['disk']['max'] }} MiB</span>
                                 <div class="progress">
                                     <div class="progress-bar" style="width: {{ $stats['disk']['percent'] }}%"></div>

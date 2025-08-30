@@ -25,7 +25,7 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <label class="control-label">公司名稱</label>
+                                <label class="control-label">面板名稱</label>
                                 <div>
                                     <input type="text" class="form-control" name="app:name" value="{{ old('app:name', config('app.name')) }}" />
                                     <p class="text-muted"><small>此名稱將用於整個面板以及傳送給客戶的電子郵件中。</small></p>

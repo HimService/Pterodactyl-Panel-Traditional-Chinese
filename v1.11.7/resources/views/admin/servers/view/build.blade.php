@@ -94,7 +94,7 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">應用程式功能限制</h3>
+                            <h3 class="box-title">伺服額外功能配置</h3>
                         </div>
                         <div class="box-body">
                             <div class="row">

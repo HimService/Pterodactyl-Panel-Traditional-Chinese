@@ -61,7 +61,7 @@
             <div class="box">
                 <div class="overlay" id="allocationLoader" style="display:none;"><i class="fa fa-refresh fa-spin"></i></div>
                 <div class="box-header with-border">
-                    <h3 class="box-title">IP 分配管理</h3>
+                    <h3 class="box-title">端口分配管理</h3>
                 </div>
 
                 <div class="box-body row">
@@ -105,7 +105,7 @@
             <div class="box">
                 <div class="overlay" id="allocationLoader" style="display:none;"><i class="fa fa-refresh fa-spin"></i></div>
                 <div class="box-header with-border">
-                    <h3 class="box-title">應用程式功能限制</h3>
+                    <h3 class="box-title">伺服額外功能配置</h3>
                 </div>
 
                 <div class="box-body row">
@@ -226,7 +226,7 @@
         <div class="col-md-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">預設組態</h3>
+                    <h3 class="box-title">核心區態</h3>
                 </div>
 
                 <div class="box-body row">
@@ -243,21 +243,21 @@
                             @endforeach
                         </select>
 
-                        <p class="small text-muted no-margin">選擇此伺服器將歸入的預設組。</p>
+                        <p class="small text-muted no-margin">選擇此伺服器將歸入的核心區。</p>
                     </div>
 
                     <div class="form-group col-xs-12">
-                        <label for="pEggId">模板</label>
+                        <label for="pEggId">核心</label>
                         <select id="pEggId" name="egg_id" class="form-control"></select>
-                        <p class="small text-muted no-margin">選擇將定義此伺服器應如何運作的模板。</p>
+                        <p class="small text-muted no-margin">選擇將定義此伺服器應如何運作的核心。</p>
                     </div>
                     <div class="form-group col-xs-12">
                         <div class="checkbox checkbox-primary no-margin-bottom">
                             <input type="checkbox" id="pSkipScripting" name="skip_scripts" value="1" {{ \Pterodactyl\Helpers\Utilities::checked('skip_scripts', 0) }} />
-                            <label for="pSkipScripting" class="strong">跳過模板安裝腳本</label>
+                            <label for="pSkipScripting" class="strong">跳過核心安裝腳本</label>
                         </div>
 
-                        <p class="small text-muted no-margin">如果所選模板附加了安裝腳本，該腳本將在安裝過程中運行。如果您想跳過此步驟，請勾選此框。</p>
+                        <p class="small text-muted no-margin">如果所選核心附加了安裝腳本，該腳本將在安裝過程中運行。如果您想跳過此步驟，請勾選此框。</p>
                     </div>
                 </div>
             </div>

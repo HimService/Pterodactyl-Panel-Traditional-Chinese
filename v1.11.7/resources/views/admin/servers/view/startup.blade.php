@@ -21,7 +21,7 @@
         <div class="col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">啟動指令修改</h3>
+                    <h3 class="box-title">啟動指令配置</h3>
                 </div>
                 <div class="box-body">
                     <label for="pStartup" class="form-label">啟動指令</label>
@@ -43,7 +43,7 @@
         <div class="col-md-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">服務組態</h3>
+                    <h3 class="box-title">核心配置</h3>
                 </div>
                 <div class="box-body row">
                     <div class="col-xs-12">
@@ -56,7 +56,7 @@
                         </p>
                     </div>
                     <div class="form-group col-xs-12">
-                        <label for="pNestId">預設組</label>
+                        <label for="pNestId">核心區</label>
                         <select name="nest_id" id="pNestId" class="form-control">
                             @foreach($nests as $nest)
                                 <option value="{{ $nest->id }}"
@@ -66,25 +66,25 @@
                                 >{{ $nest->name }}</option>
                             @endforeach
                         </select>
-                        <p class="small text-muted no-margin">選擇此伺服器將歸入的預設組。</p>
+                        <p class="small text-muted no-margin">選擇此伺服器將歸入的核心區。</p>
                     </div>
                     <div class="form-group col-xs-12">
-                        <label for="pEggId">模板</label>
+                        <label for="pEggId">核心</label>
                         <select name="egg_id" id="pEggId" class="form-control"></select>
-                        <p class="small text-muted no-margin">選擇將為此伺服器提供處理資料的模板。</p>
+                        <p class="small text-muted no-margin">選擇將為此伺服器提供處理資料的核心。</p>
                     </div>
                     <div class="form-group col-xs-12">
                         <div class="checkbox checkbox-primary no-margin-bottom">
                             <input id="pSkipScripting" name="skip_scripts" type="checkbox" value="1" @if($server->skip_scripts) checked @endif />
-                            <label for="pSkipScripting" class="strong">跳過模板安裝腳本</label>
+                            <label for="pSkipScripting" class="strong">跳過核心安裝腳本</label>
                         </div>
-                        <p class="small text-muted no-margin">如果所選模板附加了安裝腳本，該腳本將在安裝過程中運行。如果您想跳過此步驟，請勾選此框。</p>
+                        <p class="small text-muted no-margin">如果所選核心附加了安裝腳本，該腳本將在安裝過程中運行。如果您想跳過此步驟，請勾選此框。</p>
                     </div>
                 </div>
             </div>
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Docker 映像組態</h3>
+                    <h3 class="box-title">Docker 映像配置</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-group">
@@ -114,7 +114,7 @@
     }
 
     $(document).ready(function () {
-        $('#pEggId').select2({placeholder: '選擇一個模板'}).on('change', function () {
+        $('#pEggId').select2({placeholder: '選擇一個核心'}).on('change', function () {
             var selectedEgg = _.isNull($(this).val()) ? $(this).find('option').first().val() : $(this).val();
             var parentChain = _.get(Pterodactyl.nests, $("#pNestId").val());
             var objectChain = _.get(parentChain, 'eggs.' + selectedEgg);
@@ -171,7 +171,7 @@
             });
         });
 
-        $('#pNestId').select2({placeholder: '選擇一個預設組'}).on('change', function () {
+        $('#pNestId').select2({placeholder: '選擇一個核心區'}).on('change', function () {
             $('#pEggId').html('').select2({
                 data: $.map(_.get(Pterodactyl.nests, $(this).val() + '.eggs', []), function (item) {
                     return {

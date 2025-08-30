@@ -26,7 +26,7 @@
                     <table class="table table-hover">
                         <tr>
                             <th>金鑰</th>
-                            <th>備忘錄</th>
+                            <th>備註</th>
                             <th>上次使用</th>
                             <th>建立時間</th>
                             <th></th>
