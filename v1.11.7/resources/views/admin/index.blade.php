@@ -91,7 +91,7 @@
     </div>
 
     <div class="col-xs-6 col-sm-2">
-        <a href="https://github.com/pterodactyl/panel">
+        <a href="https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese">
             <button class="btn btn-primary equal-btn">
                 <i class="fa fa-fw fa-support"></i> 繁體翻譯專案 Github
             </button>
@@ -99,7 +99,7 @@
     </div>
 
     <div class="col-xs-6 col-sm-2">
-        <a href="https://github.com/pterodactyl/panel">
+        <a href="https://discord.gg/nn5jeuZHWX">
             <button class="btn btn-primary equal-btn">
                 <i class="fa fa-fw fa-support"></i> 翻譯專案支援 <small>(Discord)</small>
             </button>
