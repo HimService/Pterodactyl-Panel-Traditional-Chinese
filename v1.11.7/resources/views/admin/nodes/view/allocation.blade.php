@@ -32,7 +32,7 @@
     <div class="col-sm-8">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">現有分配</h3>
+                <h3 class="box-title">現有位置</h3>
             </div>
             <div class="box-body table-responsive no-padding" style="overflow-x: visible">
                 <table class="table table-hover" style="margin-bottom:0;">
@@ -95,7 +95,7 @@
         <form action="{{ route('admin.nodes.view.allocation', $node->id) }}" method="POST">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">分配新項目</h3>
+                    <h3 class="box-title">分配新位置</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-group">

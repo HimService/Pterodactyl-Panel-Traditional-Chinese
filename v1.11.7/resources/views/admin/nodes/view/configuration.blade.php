@@ -53,7 +53,7 @@
                 </p>
             </div>
             <div class="box-footer">
-                <button type="button" id="configTokenBtn" class="btn btn-sm btn-default" style="width:100%;">產生權杖</button>
+                <button type="button" id="configTokenBtn" class="btn btn-sm btn-default" style="width:100%;">產生指令</button>
             </div>
         </div>
     </div>

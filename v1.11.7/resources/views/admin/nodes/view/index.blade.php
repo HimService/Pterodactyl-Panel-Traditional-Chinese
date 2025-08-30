@@ -5,7 +5,7 @@
 @endsection
 
 @section('content-header')
-    <h1>{{ $node->name }}<small>您的節點的快速概覽。</small></h1>
+    <h1>{{ $node->name }}<small>此的節點的快速概覽。</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.nodes') }}">節點</a></li>
