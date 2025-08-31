@@ -29,7 +29,7 @@ const Dropdown = forwardRef<typeof Menu, Props>(({ as, children }, ref) => {
     }, [children]);
 
     if (!Button) {
-        throw new Error('Cannot mount <Dropdown /> component without a child <Dropdown.Button />.');
+        throw new Error('無法在沒有子元件 <Dropdown.Button /> 的情況下掛載 <Dropdown /> 元件。');
     }
 
     return (

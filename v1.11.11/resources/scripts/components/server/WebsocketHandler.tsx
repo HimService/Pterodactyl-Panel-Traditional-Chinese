@@ -54,7 +54,7 @@ export default () => {
                 updateToken(uuid, socket);
             } else {
                 setError(
-                    'There was an error validating the credentials provided for the websocket. Please refresh the page.'
+                    '驗證提供的 websocket 憑證時發生錯誤。請重新整理頁面。'
                 );
             }
         });
