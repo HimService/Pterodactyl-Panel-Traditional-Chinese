@@ -75,7 +75,7 @@ export default ({ database, className }: Props) => {
                         <h2 css={tw`text-2xl mb-6`}>確認刪除資料庫</h2>
                         <p css={tw`text-sm`}>
                             刪除資料庫是一個永久性的操作，無法復原。這將永久刪除
-                            the <strong>{database.name}</strong> 資料庫並移除所有相關資料。
+                            <strong>{database.name}</strong> 資料庫並移除所有相關資料。
                         </p>
                         <Form css={tw`m-0 mt-6`}>
                             <Field

@@ -31,7 +31,7 @@ export class Websocket extends EventEmitter {
                     const { event, args } = JSON.parse(e.data);
                     args ? this.emit(event, ...args) : this.emit(event);
                 } catch (ex) {
-                    console.warn('Failed to parse incoming websocket message.', ex);
+                    console.warn('無法解析傳入的 websocket 訊息。', ex);
                 }
             },
             onopen: () => {
