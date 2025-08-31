@@ -13,40 +13,16 @@ NC='\033[0m' # No Color
 printf "\033c"
 
 # --- 歡迎訊息 ---
-str_width() {
-    local s="$1"
-    local w=0
-    local i c
-    for ((i=0;i<${#s};i++)); do
-        c="${s:i:1}"
-        if [[ "$c" =~ [\u4e00-\u9fff] ]]; then
-            ((w+=2))
-        else
-            ((w+=1))
-        fi
-    done
-    echo $w
-}
-
-LINE_WIDTH=72
-print_line() {
-    local text="$1"
-    local w=$(str_width "$text")
-    local padding=$((LINE_WIDTH - w - 4))
-    local spaces=$(printf '%*s' "$padding" "")
-    echo "# $text$spaces #"
-}
-
-echo "########################################################################"
-print_line ""
-print_line "Pterodactyl Panel 繁體中文翻譯安裝腳本"
-print_line ""
-print_line "你正在使用HimService專案安裝腳本安裝"
-print_line ""
-print_line "https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese"
-
-echo "########################################################################"
-
+echo -e "${CYAN}########################################################################${NC}"
+echo -e "${CYAN}                                                                      ${NC}"
+echo -e "${CYAN}          Pterodactyl Panel 繁體中文翻譯安裝腳本                         ${NC}"
+echo -e "${CYAN}                                                                      ${NC}"
+echo -e "${CYAN}               你正在使用HimService專案安裝腳本安裝                      ${NC}"
+echo -e "${CYAN}                                                                      ${NC}"
+echo -e "${CYAN}         HimService/Pterodactyl-Panel-Traditional-Chinese              ${NC}"
+echo -e "${CYAN}                                                                      ${NC}"
+echo -e "${CYAN}########################################################################${NC}"
+echo ""
 
 # --- 版本選擇 ---
 echo -e "${CYAN}-------------------------- [ 1. 版本選擇 ] ---------------------------${NC}"
