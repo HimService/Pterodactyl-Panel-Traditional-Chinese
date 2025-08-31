@@ -19,7 +19,7 @@
     <div class="col-xs-12">
         <div class="nav-tabs-custom nav-tabs-floating">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="{{ route('admin.nests.egg.view', $egg->id) }}">組態</a></li>
+                <li class="active"><a href="{{ route('admin.nests.egg.view', $egg->id) }}">配置</a></li>
                 <li><a href="{{ route('admin.nests.egg.variables', $egg->id) }}">變數</a></li>
                 <li><a href="{{ route('admin.nests.egg.scripts', $egg->id) }}">安裝指令碼</a></li>
             </ul>
@@ -56,7 +56,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">組態</h3>
+                    <h3 class="box-title">配置</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
@@ -74,7 +74,7 @@
                             <div class="form-group">
                                 <label for="pAuthor" class="control-label">作者</label>
                                 <input type="text" id="pAuthor" readonly value="{{ $egg->author }}" class="form-control" />
-                                <p class="text-muted small">此版本核心的作者。從不同作者上傳新的核心組態將會變更此設定。</p>
+                                <p class="text-muted small">此版本核心的作者。從不同作者上傳新的核心配置將會變更此設定。</p>
                             </div>
                             <div class="form-group">
                                 <label for="pDockerImage" class="control-label">Docker 映像檔 <span class="field-required"></span></label>
@@ -126,7 +126,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="alert alert-warning">
-                                <p>除非您了解此系統的運作方式，否則不應編輯下列組態選項。如果修改錯誤，可能會導致Wings中斷。</p>
+                                <p>除非您了解此系統的運作方式，否則不應編輯下列配置選項。如果修改錯誤，可能會導致Wings中斷。</p>
                                 <p>所有欄位都是必填的，除非您從「從中複製設定」下拉式選單中選取一個單獨的選項，在這種情況下，可以將欄位留空以使用該核心的值。</p>
                             </div>
                         </div>
@@ -147,19 +147,19 @@
                                 <p class="text-muted small">應傳送至伺服器程序以正常停止它們的指令。如果您需要傳送 <code>SIGINT</code>，您應該在此處輸入 <code>^C</code>。</p>
                             </div>
                             <div class="form-group">
-                                <label for="pConfigLogs" class="form-label">日誌組態</label>
+                                <label for="pConfigLogs" class="form-label">日誌配置</label>
                                 <textarea data-action="handle-tabs" id="pConfigLogs" name="config_logs" class="form-control" rows="6">{{ ! is_null($egg->config_logs) ? json_encode(json_decode($egg->config_logs), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) : '' }}</textarea>
                                 <p class="text-muted small">這應該是日誌檔案儲存位置的 JSON 表示，以及Wings是否應建立自訂日誌。</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="pConfigFiles" class="form-label">組態檔</label>
+                                <label for="pConfigFiles" class="form-label">配置檔</label>
                                 <textarea data-action="handle-tabs" id="pConfigFiles" name="config_files" class="form-control" rows="6">{{ ! is_null($egg->config_files) ? json_encode(json_decode($egg->config_files), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) : '' }}</textarea>
-                                <p class="text-muted small">這應該是要修改的組態檔以及應變更哪些部分的 JSON 表示。</p>
+                                <p class="text-muted small">這應該是要修改的配置檔以及應變更哪些部分的 JSON 表示。</p>
                             </div>
                             <div class="form-group">
-                                <label for="pConfigStartup" class="form-label">啟動組態</label>
+                                <label for="pConfigStartup" class="form-label">啟動配置</label>
                                 <textarea data-action="handle-tabs" id="pConfigStartup" name="config_startup" class="form-control" rows="6">{{ ! is_null($egg->config_startup) ? json_encode(json_decode($egg->config_startup), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) : '' }}</textarea>
                                 <p class="text-muted small">這應該是Wings在啟動伺服器以確定完成時應尋找的值的 JSON 表示。</p>
                             </div>

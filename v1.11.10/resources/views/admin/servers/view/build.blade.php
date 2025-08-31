@@ -10,7 +10,7 @@
         <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.servers') }}">伺服器</a></li>
         <li><a href="{{ route('admin.servers.view', $server->id) }}">{{ $server->name }}</a></li>
-        <li class="active">組建組態</li>
+        <li class="active">組建配置</li>
     </ol>
 @endsection
 
@@ -167,7 +167,7 @@
                         </div>
                         <div class="box-footer">
                             {!! csrf_field() !!}
-                            <button type="submit" class="btn btn-primary pull-right">更新組建組態</button>
+                            <button type="submit" class="btn btn-primary pull-right">更新組建配置</button>
                         </div>
                     </div>
                 </div>

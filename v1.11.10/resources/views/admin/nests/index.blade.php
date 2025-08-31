@@ -16,7 +16,7 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="alert alert-danger">
-            核心是 翼手龍面板 的一個強大功能，可實現極大的靈活性和組態。請注意，雖然功能強大，但錯誤地修改核心很容易使您的伺服器變磚並導致更多問題。請避免編輯預設核心 ，由 <code>support@pterodactyl.io</code> 提供的那些。 除非您完全確定您在做什麼。
+            核心是 翼手龍面板 的一個強大功能，可實現極大的靈活性和配置。請注意，雖然功能強大，但錯誤地修改核心很容易使您的伺服器變磚並導致更多問題。請避免編輯預設核心 ，由 <code>support@pterodactyl.io</code> 提供的那些。 除非您完全確定您在做什麼。
         </div>
     </div>
 </div>

@@ -20,7 +20,7 @@
     <div class="col-xs-12">
         <div class="nav-tabs-custom nav-tabs-floating">
             <ul class="nav nav-tabs">
-                <li><a href="{{ route('admin.nests.egg.view', $egg->id) }}">組態</a></li>
+                <li><a href="{{ route('admin.nests.egg.view', $egg->id) }}">配置</a></li>
                 <li class="active"><a href="{{ route('admin.nests.egg.variables', $egg->id) }}">變數</a></li>
                 <li><a href="{{ route('admin.nests.egg.scripts', $egg->id) }}">安裝指令碼</a></li>
             </ul>

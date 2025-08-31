@@ -29,7 +29,7 @@ return [
     'submit' => '提交',
     'close' => '關閉',
     'settings' => '設定',
-    'configuration' => '組態',
+    'configuration' => '配置',
     'sftp' => 'SFTP',
     'databases' => '資料庫',
     'memo' => '備忘錄',

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    {{ $node->name }}: 組態
+    {{ $node->name }}: 配置
 @endsection
 
 @section('content-header')

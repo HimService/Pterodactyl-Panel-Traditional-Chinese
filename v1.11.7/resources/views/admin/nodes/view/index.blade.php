@@ -20,7 +20,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="{{ route('admin.nodes.view', $node->id) }}">關於</a></li>
                 <li><a href="{{ route('admin.nodes.view.settings', $node->id) }}">設定</a></li>
-                <li><a href="{{ route('admin.nodes.view.configuration', $node->id) }}">組態</a></li>
+                <li><a href="{{ route('admin.nodes.view.configuration', $node->id) }}">配置</a></li>
                 <li><a href="{{ route('admin.nodes.view.allocation', $node->id) }}">分配</a></li>
                 <li><a href="{{ route('admin.nodes.view.servers', $node->id) }}">伺服器</a></li>
             </ul>

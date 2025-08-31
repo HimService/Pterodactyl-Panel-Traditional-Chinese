@@ -266,7 +266,7 @@
         <div class="col-md-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Docker 組態</h3>
+                    <h3 class="box-title">Docker 配置</h3>
                 </div>
 
                 <div class="box-body row">
@@ -285,7 +285,7 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">啟動組態</h3>
+                    <h3 class="box-title">啟動配置</h3>
                 </div>
 
                 <div class="box-body row">

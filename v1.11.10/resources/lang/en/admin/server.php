@@ -9,7 +9,7 @@ return [
         'default_allocation_not_found' => '在此伺服器的分配中找不到請求的預設分配。',
     ],
     'alerts' => [
-        'startup_changed' => '此伺服器的啟動組態已更新。如果此伺服器的 Nest 或 Egg 已變更，現在將會進行重新安裝。',
+        'startup_changed' => '此伺服器的啟動配置已更新。如果此伺服器的 Nest 或 Egg 已變更，現在將會進行重新安裝。',
         'server_deleted' => '已成功從系統中刪除伺服器。',
         'server_created' => '已成功在面板上建立伺服器。請讓 daemon 花幾分鐘時間完全安裝此伺服器。',
         'build_updated' => '此伺服器的建置詳細資料已更新。某些變更可能需要重新啟動才能生效。',

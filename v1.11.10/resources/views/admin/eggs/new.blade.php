@@ -19,7 +19,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">組態</h3>
+                    <h3 class="box-title">配置</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
@@ -103,19 +103,19 @@
                                 <p class="text-muted small">應傳送至伺服器程序以正常停止它們的指令。如果您需要傳送 <code>SIGINT</code>，您應該在此處輸入 <code>^C</code>。</p>
                             </div>
                             <div class="form-group">
-                                <label for="pConfigLogs" class="form-label">日誌組態</label>
+                                <label for="pConfigLogs" class="form-label">日誌配置</label>
                                 <textarea data-action="handle-tabs" id="pConfigLogs" name="config_logs" class="form-control" rows="6">{{ old('config_logs') }}</textarea>
                                 <p class="text-muted small">這應該是日誌檔案儲存位置的 JSON 表示，以及Wings是否應建立自訂日誌。</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="pConfigFiles" class="form-label">組態檔</label>
+                                <label for="pConfigFiles" class="form-label">配置檔</label>
                                 <textarea data-action="handle-tabs" id="pConfigFiles" name="config_files" class="form-control" rows="6">{{ old('config_files') }}</textarea>
-                                <p class="text-muted small">這應該是要修改的組態檔以及應變更哪些部分的 JSON 表示。</p>
+                                <p class="text-muted small">這應該是要修改的配置檔以及應變更哪些部分的 JSON 表示。</p>
                             </div>
                             <div class="form-group">
-                                <label for="pConfigStartup" class="form-label">啟動組態</label>
+                                <label for="pConfigStartup" class="form-label">啟動配置</label>
                                 <textarea data-action="handle-tabs" id="pConfigStartup" name="config_startup" class="form-control" rows="6">{{ old('config_startup') }}</textarea>
                                 <p class="text-muted small">這應該是Wings在啟動伺服器以確定完成時應尋找的值的 JSON 表示。</p>
                             </div>
