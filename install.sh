@@ -2,7 +2,16 @@
 
 # Pterodactyl-Panel-Traditional-Chinese Installation Script
 
-# 顯示可用版本
+# --- 歡迎訊息 ---
+echo "================================================================"
+echo " Pterodactyl Panel 繁體中文翻譯安裝腳本"
+echo "================================================================"
+echo ""
+
+# --- 版本選擇 ---
+echo "----------------------------------------------------------------"
+echo " 1. 版本選擇"
+echo "----------------------------------------------------------------"
 echo "可用的面板翻譯版本："
 echo "1) v1.11.10"
 echo "2) v1.11.7"
@@ -22,12 +31,17 @@ case $version_choice in
 esac
 
 echo "您選擇了版本: $VERSION"
+echo ""
 
-# 讓用戶輸入 Pterodactyl 路徑
+# --- 路徑設定 ---
+echo "----------------------------------------------------------------"
+echo " 2. 面板路徑設定"
+echo "----------------------------------------------------------------"
 read -p "請輸入您的 Pterodactyl 面板安裝路徑 (預設: /var/www/pterodactyl): " PTERODACTYL_PATH
 PTERODACTYL_PATH=${PTERODACTYL_PATH:-/var/www/pterodactyl}
 
 echo "面板路徑設定為: $PTERODACTYL_PATH"
+echo ""
 
 # 檢查路徑是否存在
 if [ ! -d "$PTERODACTYL_PATH" ]; then
@@ -45,7 +59,10 @@ if [ ! -d "$TEMP_DIR" ]; then
     exit 1
 fi
 
-# 下載主分支的壓縮檔
+# --- 下載與解壓縮 ---
+echo "----------------------------------------------------------------"
+echo " 3. 下載翻譯檔案"
+echo "----------------------------------------------------------------"
 DOWNLOAD_URL="https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese/archive/refs/heads/main.zip"
 echo "正在從 $DOWNLOAD_URL 下載最新的翻譯儲存庫..."
 if ! curl -L -o "$TEMP_DIR/repo.zip" "$DOWNLOAD_URL"; then
@@ -55,8 +72,7 @@ if ! curl -L -o "$TEMP_DIR/repo.zip" "$DOWNLOAD_URL"; then
 fi
 
 echo "下載完成。"
-
-# 解壓縮儲存庫
+echo ""
 echo "正在解壓縮儲存庫..."
 if ! unzip -o "$TEMP_DIR/repo.zip" -d "$TEMP_DIR"; then
     echo "解壓縮失敗。"
@@ -64,7 +80,10 @@ if ! unzip -o "$TEMP_DIR/repo.zip" -d "$TEMP_DIR"; then
     exit 1
 fi
 
-# 替換 resources 資料夾
+# --- 替換檔案 ---
+echo "----------------------------------------------------------------"
+echo " 4. 替換面板檔案"
+echo "----------------------------------------------------------------"
 cd "$PTERODACTYL_PATH" || exit
 echo "正在備份並刪除舊的 resources 資料夾..."
 BACKUP_NAME="resources_backup_$(date +%Y%m%d_%H%M%S)"
@@ -102,8 +121,12 @@ echo "正在刪除下載的檔案與暫存資料夾..."
 rm -rf "$TEMP_DIR"
 
 echo "resources 資料夾替換成功。"
+echo ""
 
-# 運行 yarn 指令
+# --- 安裝與建置 ---
+echo "----------------------------------------------------------------"
+echo " 5. 安裝前端套件並建置"
+echo "----------------------------------------------------------------"
 echo "正在運行 yarn install..."
 yarn install --pure-lockfile || { echo "yarn install 指令失敗，腳本終止。"; exit 1; }
 
@@ -113,7 +136,10 @@ export NODE_OPTIONS=--openssl-legacy-provider
 echo "正在建置前端資源..."
 yarn build:production || { echo "yarn build:production 指令失敗，腳本終止。"; exit 1; }
 
-# 將 storage 與 bootstrap/cache 擁有者改為 www-data
+# --- 設定權限與快取 ---
+echo "----------------------------------------------------------------"
+echo " 6. 設定權限與清除快取"
+echo "----------------------------------------------------------------"
 echo "正在設定資料夾權限..."
 sudo chown -R www-data:www-data storage bootstrap/cache
 
@@ -128,4 +154,7 @@ sudo -u www-data php artisan view:clear
 sudo -u www-data php artisan route:clear
 echo "快取已清除。"
 
-echo "Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！"
+echo ""
+echo "================================================================"
+echo " Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！"
+echo "================================================================"
