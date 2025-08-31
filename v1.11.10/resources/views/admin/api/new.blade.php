@@ -32,7 +32,7 @@
                                     </td>
                                     <td class="col-sm-3 radio radio-primary text-center">
                                         <input type="radio" id="rw_{{ $resource }}" name="r_{{ $resource }}" value="{{ $permissions['rw'] }}">
-                                        <label for="rw_{{ $resource }}">Read &amp; Write</label>
+                                        <label for="rw_{{ $resource }}">讀取和寫入</label>
                                     </td>
                                     <td class="col-sm-3 radio text-center">
                                         <input type="radio" id="n_{{ $resource }}" name="r_{{ $resource }}" value="{{ $permissions['n'] }}" checked>
