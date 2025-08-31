@@ -13,16 +13,26 @@ NC='\033[0m' # No Color
 printf "\033c"
 
 # --- 歡迎訊息 ---
-echo -e "${CYAN}########################################################################${NC}"
-echo -e "${CYAN}#                                                                      #${NC}"
-echo -e "${CYAN}#         Pterodactyl Panel 繁體中文翻譯安裝腳本                         #${NC}"
-echo -e "${CYAN}#                                                                      #${NC}"
-echo -e "${CYAN}#              你正在使用HimService專案安裝腳本安裝                      #${NC}"
-echo -e "${CYAN}#                                                                      #${NC}"
-echo -e "${CYAN}#        HimService/Pterodactyl-Panel-Traditional-Chinese              #${NC}"
-echo -e "${CYAN}#                                                                      #${NC}"
-echo -e "${CYAN}########################################################################${NC}"
-echo ""
+LINE_WIDTH=72  # 包含左右 # 的總寬度
+
+print_line() {
+    local text="$1"
+    local len=${#text}
+    local padding=$((LINE_WIDTH - len - 4)) # 4 是左右 # 和空格
+    local spaces=$(printf '%*s' "$padding" "")
+    echo "# $text$spaces #"
+}
+
+echo "########################################################################"
+echo "#                                                                      #"
+print_line "Pterodactyl Panel 繁體中文翻譯安裝腳本"
+echo "#                                                                      #"
+print_line "你正在使用HimService專案安裝腳本安裝"
+echo "#                                                                      #"
+print_line "https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese"
+echo "#                                                                      #"
+echo "########################################################################"
+
 
 # --- 版本選擇 ---
 echo -e "${CYAN}-------------------------- [ 1. 版本選擇 ] ---------------------------${NC}"
