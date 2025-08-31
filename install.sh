@@ -25,10 +25,10 @@ echo -e "${CYAN}################################################################
 echo ""
 
 # --- 版本選擇 ---
-echo -e "${CYAN}-------------------------- [ 1. 版本選擇 ] ---------------------------${NC}"
+echo -e "${CYAN}-------------------------- [ 版本選擇 ] ---------------------------${NC}"
 echo -e "${YELLOW}可用的面板翻譯版本：${NC}"
-echo "1) v1.11.10"
-echo "2) v1.11.7"
+echo "1) v1.11.10-測試版"
+echo "2) v1.11.7-測試版"
 read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-2): ${NC}")" version_choice
 
 case $version_choice in
@@ -48,7 +48,7 @@ echo -e "${GREEN}您選擇了版本: $VERSION${NC}"
 echo ""
 
 # --- 路徑設定 ---
-echo -e "${CYAN}------------------------ [ 2. 面板路徑設定 ] -------------------------${NC}"
+echo -e "${CYAN}------------------------ [ 面板路徑設定 ] -------------------------${NC}"
 read -p "$(echo -e "${YELLOW}請輸入您的 Pterodactyl 面板安裝路徑 (預設: /var/www/pterodactyl): ${NC}")" PTERODACTYL_PATH
 PTERODACTYL_PATH=${PTERODACTYL_PATH:-/var/www/pterodactyl}
 
@@ -143,7 +143,7 @@ echo -e "${YELLOW}正在建置前端資源...${NC}"
 yarn build:production || { echo -e "${RED}yarn build:production 指令失敗，腳本終止。${NC}"; exit 1; }
 
 # --- 設定權限與快取 ---
-echo -e "${CYAN}---------------------- [ 6. 設定權限與清除快取 ] -----------------------${NC}"
+echo -e "${CYAN}---------------------- [ 設定權限與清除快取 ] -----------------------${NC}"
 echo -e "${YELLOW}正在設定資料夾權限...${NC}"
 sudo chown -R www-data:www-data storage bootstrap/cache
 
@@ -160,9 +160,9 @@ echo -e "${GREEN}快取已清除。${NC}"
 
 echo ""
 echo -e "${GREEN}########################################################################${NC}"
-echo -e "${GREEN}#                                                                      #${NC}"
-echo -e "${GREEN}#      Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！       #${NC}"
-echo -e "${GREEN}#                                                                      #${NC}"
-echo -e "${GREEN}#               感謝您使用HimService專案安裝腳本               #${NC}"
-echo -e "${GREEN}#                                                                      #${NC}"
+echo -e "${GREEN}                                                                      ${NC}"
+echo -e "${GREEN}      Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！             ${NC}"
+echo -e "${GREEN}                                                                      ${NC}"
+echo -e "${GREEN}               感謝您使用HimService專案安裝腳本                        ${NC}"
+echo -e "${GREEN}                                                                      ${NC}"
 echo -e "${GREEN}########################################################################${NC}"
