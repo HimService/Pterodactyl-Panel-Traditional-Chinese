@@ -113,15 +113,19 @@ export NODE_OPTIONS=--openssl-legacy-provider
 echo "正在建置前端資源..."
 yarn build:production || { echo "yarn build:production 指令失敗，腳本終止。"; exit 1; }
 
-# 詢問是否清除快取
-read -p "是否要清除 Laravel 快取? (y/n): " clear_cache
-if [[ "$clear_cache" == "y" || "$clear_cache" == "Y" ]]; then
-    echo "正在清除快取..."
-    php artisan cache:clear
-    php artisan config:clear
-    php artisan view:clear
-    php artisan route:clear
-    echo "快取已清除。"
-fi
+# 將 storage 與 bootstrap/cache 擁有者改為 www-data
+echo "正在設定資料夾權限..."
+sudo chown -R www-data:www-data storage bootstrap/cache
+
+# 設定目錄權限為 775
+sudo chmod -R 775 storage bootstrap/cache
+
+# 清除 Laravel 快取
+echo "正在清除快取..."
+sudo -u www-data php artisan cache:clear
+sudo -u www-data php artisan config:clear
+sudo -u www-data php artisan view:clear
+sudo -u www-data php artisan route:clear
+echo "快取已清除。"
 
 echo "Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！"
