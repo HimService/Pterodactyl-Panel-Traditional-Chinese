@@ -13,24 +13,38 @@ NC='\033[0m' # No Color
 printf "\033c"
 
 # --- 歡迎訊息 ---
-LINE_WIDTH=72  # 包含左右 # 的總寬度
+str_width() {
+    local s="$1"
+    local w=0
+    local i c
+    for ((i=0;i<${#s};i++)); do
+        c="${s:i:1}"
+        if [[ "$c" =~ [\u4e00-\u9fff] ]]; then
+            ((w+=2))
+        else
+            ((w+=1))
+        fi
+    done
+    echo $w
+}
 
+LINE_WIDTH=72
 print_line() {
     local text="$1"
-    local len=${#text}
-    local padding=$((LINE_WIDTH - len - 4)) # 4 是左右 # 和空格
+    local w=$(str_width "$text")
+    local padding=$((LINE_WIDTH - w - 4))
     local spaces=$(printf '%*s' "$padding" "")
     echo "# $text$spaces #"
 }
 
 echo "########################################################################"
-echo "#                                                                      #"
+print_line ""
 print_line "Pterodactyl Panel 繁體中文翻譯安裝腳本"
-echo "#                                                                      #"
+print_line ""
 print_line "你正在使用HimService專案安裝腳本安裝"
-echo "#                                                                      #"
+print_line ""
 print_line "https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese"
-echo "#                                                                      #"
+
 echo "########################################################################"
 
 
