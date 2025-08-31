@@ -2,8 +2,8 @@
 這是一個適用於翼手龍面板1.11.7的繁體中文翻譯檔案，可將您的翼手龍面板幾乎翻譯成繁體中文顯示。
 
 ## 當前製作的版本
-- 1.11.10 製作中
-- 1.11.7 製作完畢，測試中
+- 1.11.10 製作完畢，測試中
+- 1.11.7 製作完畢，優化中
 
 ## 安裝注意事項
 請確保版本正確，並已備份面板的resources資料夾
@@ -14,6 +14,7 @@
 ```bash
 
 cd /var/www/pterodactyl
+yarn install --pure-lockfile
 export NODE_OPTIONS=--openssl-legacy-provider # for NodeJS v17+
 yarn build:production
 
