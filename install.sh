@@ -2,20 +2,27 @@
 
 # Pterodactyl-Panel-Traditional-Chinese Installation Script
 
+# --- Colors ---
+CYAN='\033[0;36m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 # --- 歡迎訊息 ---
-echo "================================================================"
-echo " Pterodactyl Panel 繁體中文翻譯安裝腳本"
-echo "================================================================"
+echo -e "${CYAN}================================================================${NC}"
+echo -e "${CYAN} Pterodactyl Panel 繁體中文翻譯安裝腳本 ${NC}"
+echo -e "${CYAN}================================================================${NC}"
 echo ""
 
 # --- 版本選擇 ---
-echo "----------------------------------------------------------------"
-echo " 1. 版本選擇"
-echo "----------------------------------------------------------------"
-echo "可用的面板翻譯版本："
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN} 1. 版本選擇${NC}"
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${YELLOW}可用的面板翻譯版本：${NC}"
 echo "1) v1.11.10"
 echo "2) v1.11.7"
-read -p "請選擇要安裝的版本 (1-2): " version_choice
+read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-2): ${NC}")" version_choice
 
 case $version_choice in
     1)
@@ -25,78 +32,78 @@ case $version_choice in
         VERSION="v1.11.7"
         ;;
     *)
-        echo "無效的選擇，腳本將終止。"
+        echo -e "${RED}無效的選擇，腳本將終止。${NC}"
         exit 1
         ;;
 esac
 
-echo "您選擇了版本: $VERSION"
+echo -e "${GREEN}您選擇了版本: $VERSION${NC}"
 echo ""
 
 # --- 路徑設定 ---
-echo "----------------------------------------------------------------"
-echo " 2. 面板路徑設定"
-echo "----------------------------------------------------------------"
-read -p "請輸入您的 Pterodactyl 面板安裝路徑 (預設: /var/www/pterodactyl): " PTERODACTYL_PATH
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN} 2. 面板路徑設定${NC}"
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+read -p "$(echo -e "${YELLOW}請輸入您的 Pterodactyl 面板安裝路徑 (預設: /var/www/pterodactyl): ${NC}")" PTERODACTYL_PATH
 PTERODACTYL_PATH=${PTERODACTYL_PATH:-/var/www/pterodactyl}
 
-echo "面板路徑設定為: $PTERODACTYL_PATH"
+echo -e "${GREEN}面板路徑設定為: $PTERODACTYL_PATH${NC}"
 echo ""
 
 # 檢查路徑是否存在
 if [ ! -d "$PTERODACTYL_PATH" ]; then
-    echo "錯誤: 路徑 $PTERODACTYL_PATH 不存在。"
+    echo -e "${RED}錯誤: 路徑 $PTERODACTYL_PATH 不存在。${NC}"
     exit 1
 fi
 
 # 提醒使用者權限問題
-echo "請確認您有權限修改 $PTERODACTYL_PATH"
+echo -e "${YELLOW}請確認您有權限修改 $PTERODACTYL_PATH${NC}"
 
 # 建立一個安全的暫存目錄
 TEMP_DIR=$(mktemp -d)
 if [ ! -d "$TEMP_DIR" ]; then
-    echo "無法建立暫存目錄。"
+    echo -e "${RED}無法建立暫存目錄。${NC}"
     exit 1
 fi
 
 # --- 下載與解壓縮 ---
-echo "----------------------------------------------------------------"
-echo " 3. 下載翻譯檔案"
-echo "----------------------------------------------------------------"
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN} 3. 下載翻譯檔案${NC}"
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
 DOWNLOAD_URL="https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese/archive/refs/heads/main.zip"
-echo "正在從 $DOWNLOAD_URL 下載最新的翻譯儲存庫..."
+echo -e "${YELLOW}正在從 $DOWNLOAD_URL 下載最新的翻譯儲存庫...${NC}"
 if ! curl -L -o "$TEMP_DIR/repo.zip" "$DOWNLOAD_URL"; then
-    echo "下載失敗，請檢查您的網路連線或 URL 是否正確。"
+    echo -e "${RED}下載失敗，請檢查您的網路連線或 URL 是否正確。${NC}"
     rm -rf "$TEMP_DIR"
     exit 1
 fi
 
-echo "下載完成。"
+echo -e "${GREEN}下載完成。${NC}"
 echo ""
-echo "正在解壓縮儲存庫..."
+echo -e "${YELLOW}正在解壓縮儲存庫...${NC}"
 if ! unzip -o "$TEMP_DIR/repo.zip" -d "$TEMP_DIR"; then
-    echo "解壓縮失敗。"
+    echo -e "${RED}解壓縮失敗。${NC}"
     rm -rf "$TEMP_DIR"
     exit 1
 fi
 
 # --- 替換檔案 ---
-echo "----------------------------------------------------------------"
-echo " 4. 替換面板檔案"
-echo "----------------------------------------------------------------"
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN} 4. 替換面板檔案${NC}"
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
 cd "$PTERODACTYL_PATH" || exit
-echo "正在備份並刪除舊的 resources 資料夾..."
+echo -e "${YELLOW}正在備份並刪除舊的 resources 資料夾...${NC}"
 BACKUP_NAME="resources_backup_$(date +%Y%m%d_%H%M%S)"
 if [ -d "resources" ]; then
     mv resources "$BACKUP_NAME"
-    echo "舊的 resources 資料夾已備份為 $BACKUP_NAME。"
+    echo -e "${GREEN}舊的 resources 資料夾已備份為 $BACKUP_NAME。${NC}"
 fi
 
 SOURCE_RESOURCES="$TEMP_DIR/Pterodactyl-Panel-Traditional-Chinese-main/$VERSION/resources"
 
 if [ ! -d "$SOURCE_RESOURCES" ]; then
-    echo "錯誤: 找不到來源資料夾 $SOURCE_RESOURCES。"
-    echo "請確認您選擇的版本 $VERSION 是否存在於儲存庫中。"
+    echo -e "${RED}錯誤: 找不到來源資料夾 $SOURCE_RESOURCES。${NC}"
+    echo -e "${RED}請確認您選擇的版本 $VERSION 是否存在於儲存庫中。${NC}"
     # 如果來源不存在，還原備份
     if [ -d "$BACKUP_NAME" ]; then
          mv "$BACKUP_NAME" resources
@@ -105,9 +112,9 @@ if [ ! -d "$SOURCE_RESOURCES" ]; then
     exit 1
 fi
 
-echo "正在從解壓縮的資料夾中複製 $VERSION 的 resources 資料夾..."
+echo -e "${YELLOW}正在從解壓縮的資料夾中複製 $VERSION 的 resources 資料夾...${NC}"
 if ! cp -r "$SOURCE_RESOURCES" "."; then
-    echo "複製 resources 資料夾失敗。"
+    echo -e "${RED}複製 resources 資料夾失敗。${NC}"
     # 如果複製失敗，還原備份
     if [ -d "$BACKUP_NAME" ]; then
          mv "$BACKUP_NAME" resources
@@ -117,44 +124,44 @@ if ! cp -r "$SOURCE_RESOURCES" "."; then
 fi
 
 # 清理下載和解壓縮的檔案
-echo "正在刪除下載的檔案與暫存資料夾..."
+echo -e "${YELLOW}正在刪除下載的檔案與暫存資料夾...${NC}"
 rm -rf "$TEMP_DIR"
 
-echo "resources 資料夾替換成功。"
+echo -e "${GREEN}resources 資料夾替換成功。${NC}"
 echo ""
 
 # --- 安裝與建置 ---
-echo "----------------------------------------------------------------"
-echo " 5. 安裝前端套件並建置"
-echo "----------------------------------------------------------------"
-echo "正在運行 yarn install..."
-yarn install --pure-lockfile || { echo "yarn install 指令失敗，腳本終止。"; exit 1; }
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN} 5. 安裝前端套件並建置${NC}"
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${YELLOW}正在運行 yarn install...${NC}"
+yarn install --pure-lockfile || { echo -e "${RED}yarn install 指令失敗，腳本終止。${NC}"; exit 1; }
 
-echo "正在設定 NodeJS v17+ 環境變數..."
+echo -e "${YELLOW}正在設定 NodeJS v17+ 環境變數...${NC}"
 export NODE_OPTIONS=--openssl-legacy-provider
 
-echo "正在建置前端資源..."
-yarn build:production || { echo "yarn build:production 指令失敗，腳本終止。"; exit 1; }
+echo -e "${YELLOW}正在建置前端資源...${NC}"
+yarn build:production || { echo -e "${RED}yarn build:production 指令失敗，腳本終止。${NC}"; exit 1; }
 
 # --- 設定權限與快取 ---
-echo "----------------------------------------------------------------"
-echo " 6. 設定權限與清除快取"
-echo "----------------------------------------------------------------"
-echo "正在設定資料夾權限..."
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN} 6. 設定權限與清除快取${NC}"
+echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${YELLOW}正在設定資料夾權限...${NC}"
 sudo chown -R www-data:www-data storage bootstrap/cache
 
 # 設定目錄權限為 775
 sudo chmod -R 775 storage bootstrap/cache
 
 # 清除 Laravel 快取
-echo "正在清除快取..."
+echo -e "${YELLOW}正在清除快取...${NC}"
 sudo -u www-data php artisan cache:clear
 sudo -u www-data php artisan config:clear
 sudo -u www-data php artisan view:clear
 sudo -u www-data php artisan route:clear
-echo "快取已清除。"
+echo -e "${GREEN}快取已清除。${NC}"
 
 echo ""
-echo "================================================================"
-echo " Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！"
-echo "================================================================"
+echo -e "${GREEN}================================================================${NC}"
+echo -e "${GREEN} Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！${NC}"
+echo -e "${GREEN}================================================================${NC}"
