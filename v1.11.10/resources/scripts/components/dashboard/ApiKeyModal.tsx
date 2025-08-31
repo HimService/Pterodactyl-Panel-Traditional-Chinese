@@ -14,10 +14,9 @@ const ApiKeyModal = ({ apiKey }: Props) => {
 
     return (
         <>
-            <h3 css={tw`mb-6 text-2xl`}>Your API Key</h3>
+            <h3 css={tw`mb-6 text-2xl`}>您的 API 金鑰</h3>
             <p css={tw`text-sm mb-6`}>
-                The API key you have requested is shown below. Please store this in a safe location, it will not be
-                shown again.
+                您創建的 API 金鑰如下所示。請將其存放在安全的位置，它不會再次顯示。
             </p>
             <pre css={tw`text-sm bg-neutral-900 rounded py-2 px-4 font-mono`}>
                 <CopyOnClick text={apiKey}>
@@ -26,7 +25,7 @@ const ApiKeyModal = ({ apiKey }: Props) => {
             </pre>
             <div css={tw`flex justify-end mt-6`}>
                 <Button type={'button'} onClick={() => dismiss()}>
-                    Close
+                    關閉
                 </Button>
             </div>
         </>
