@@ -34,10 +34,17 @@ yarn build:production
 編譯完成後請輸入
 ```bash
 
-php artisan cache:clear
-php artisan config:clear
-php artisan view:clear
-php artisan route:clear
+cd /var/www/pterodactyl
+
+sudo chown -R www-data:www-data storage bootstrap/cache
+
+sudo chmod -R 775 storage bootstrap/cache
+
+# 清除 Laravel 快取
+sudo -u www-data php artisan cache:clear
+sudo -u www-data php artisan config:clear
+sudo -u www-data php artisan view:clear
+sudo -u www-data php artisan route:clear
 
 ```
 恭喜，您已完成面板翻譯替換作業
