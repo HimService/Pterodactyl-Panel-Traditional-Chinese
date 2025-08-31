@@ -8,7 +8,18 @@
 ## 安裝注意事項
 請確保版本正確，並已備份面板的resources資料夾
 
-## 安裝步驟
+## 安裝方式
+您可以選擇兩種安裝方式，腳本安裝或手動安裝翻譯
+
+### 腳本安裝
+使用腳本安裝可以更加快速的安裝翻譯內容，並完成套用
+
+```bash
+bash <(curl -sSL https://raw.githubusercontent.com/HimService/Pterodactyl-Panel-Traditional-Chinese/main/install.sh)
+```
+### 手動安裝
+手動安裝可以確保安裝彈性，但速度較慢。
+
 將指定版本的翻譯檔案下載，下載完畢後將面板內的resources資料夾備份後移除並替換成翻譯檔案內的resources資料夾
 隨後進行以下操作(使用1.11.7版本演示)
 ```bash
