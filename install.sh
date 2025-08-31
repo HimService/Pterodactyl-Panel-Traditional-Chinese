@@ -13,15 +13,15 @@ NC='\033[0m' # No Color
 clear
 
 # --- 歡迎訊息 ---
-echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN} Pterodactyl Panel 繁體中文翻譯安裝腳本 ${NC}"
-echo -e "${CYAN}================================================================${NC}"
+echo -e "${CYAN}################################################################${NC}"
+echo -e "${CYAN}#                                                              #${NC}"
+echo -e "${CYAN}#      Pterodactyl Panel 繁體中文翻譯安裝腳本      #${NC}"
+echo -e "${CYAN}#                                                              #${NC}"
+echo -e "${CYAN}################################################################${NC}"
 echo ""
 
 # --- 版本選擇 ---
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
-echo -e "${CYAN} 1. 版本選擇${NC}"
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN}-------------------------- [ 1. 版本選擇 ] ---------------------------${NC}"
 echo -e "${YELLOW}可用的面板翻譯版本：${NC}"
 echo "1) v1.11.10"
 echo "2) v1.11.7"
@@ -44,9 +44,7 @@ echo -e "${GREEN}您選擇了版本: $VERSION${NC}"
 echo ""
 
 # --- 路徑設定 ---
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
-echo -e "${CYAN} 2. 面板路徑設定${NC}"
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN}------------------------ [ 2. 面板路徑設定 ] -------------------------${NC}"
 read -p "$(echo -e "${YELLOW}請輸入您的 Pterodactyl 面板安裝路徑 (預設: /var/www/pterodactyl): ${NC}")" PTERODACTYL_PATH
 PTERODACTYL_PATH=${PTERODACTYL_PATH:-/var/www/pterodactyl}
 
@@ -70,9 +68,7 @@ if [ ! -d "$TEMP_DIR" ]; then
 fi
 
 # --- 下載與解壓縮 ---
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
-echo -e "${CYAN} 3. 下載翻譯檔案${NC}"
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN}------------------------ [ 3. 下載翻譯檔案 ] -------------------------${NC}"
 DOWNLOAD_URL="https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese/archive/refs/heads/main.zip"
 echo -e "${YELLOW}正在從 $DOWNLOAD_URL 下載最新的翻譯儲存庫...${NC}"
 if ! curl -L -o "$TEMP_DIR/repo.zip" "$DOWNLOAD_URL"; then
@@ -91,9 +87,7 @@ if ! unzip -o "$TEMP_DIR/repo.zip" -d "$TEMP_DIR"; then
 fi
 
 # --- 替換檔案 ---
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
-echo -e "${CYAN} 4. 替換面板檔案${NC}"
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN}------------------------ [ 4. 替換面板檔案 ] -------------------------${NC}"
 cd "$PTERODACTYL_PATH" || exit
 echo -e "${YELLOW}正在備份並刪除舊的 resources 資料夾...${NC}"
 BACKUP_NAME="resources_backup_$(date +%Y%m%d_%H%M%S)"
@@ -134,9 +128,7 @@ echo -e "${GREEN}resources 資料夾替換成功。${NC}"
 echo ""
 
 # --- 安裝與建置 ---
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
-echo -e "${CYAN} 5. 安裝前端套件並建置${NC}"
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN}---------------------- [ 5. 安裝前端套件並建置 ] -----------------------${NC}"
 echo -e "${YELLOW}正在運行 yarn install...${NC}"
 yarn install --pure-lockfile || { echo -e "${RED}yarn install 指令失敗，腳本終止。${NC}"; exit 1; }
 
@@ -147,9 +139,7 @@ echo -e "${YELLOW}正在建置前端資源...${NC}"
 yarn build:production || { echo -e "${RED}yarn build:production 指令失敗，腳本終止。${NC}"; exit 1; }
 
 # --- 設定權限與快取 ---
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
-echo -e "${CYAN} 6. 設定權限與清除快取${NC}"
-echo -e "${CYAN}----------------------------------------------------------------${NC}"
+echo -e "${CYAN}---------------------- [ 6. 設定權限與清除快取 ] -----------------------${NC}"
 echo -e "${YELLOW}正在設定資料夾權限...${NC}"
 sudo chown -R www-data:www-data storage bootstrap/cache
 
@@ -165,6 +155,8 @@ sudo -u www-data php artisan route:clear
 echo -e "${GREEN}快取已清除。${NC}"
 
 echo ""
-echo -e "${GREEN}================================================================${NC}"
-echo -e "${GREEN} Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！${NC}"
-echo -e "${GREEN}================================================================${NC}"
+echo -e "${GREEN}################################################################${NC}"
+echo -e "${GREEN}#                                                              #${NC}"
+echo -e "${GREEN}#      Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！      #${NC}"
+echo -e "${GREEN}#                                                              #${NC}"
+echo -e "${GREEN}################################################################${NC}"
