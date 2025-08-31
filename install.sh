@@ -35,6 +35,9 @@ if [ ! -d "$PTERODACTYL_PATH" ]; then
     exit 1
 fi
 
+# 提醒使用者權限問題
+echo "請確認您有權限修改 $PTERODACTYL_PATH"
+
 # 建立一個安全的暫存目錄
 TEMP_DIR=$(mktemp -d)
 if [ ! -d "$TEMP_DIR" ]; then
@@ -95,20 +98,20 @@ if ! cp -r "$SOURCE_RESOURCES" "."; then
 fi
 
 # 清理下載和解壓縮的檔案
-echo "正在清理暫存檔案..."
+echo "正在刪除下載的檔案與暫存資料夾..."
 rm -rf "$TEMP_DIR"
 
 echo "resources 資料夾替換成功。"
 
 # 運行 yarn 指令
 echo "正在運行 yarn install..."
-yarn install --pure-lockfile
+yarn install --pure-lockfile || { echo "yarn install 指令失敗，腳本終止。"; exit 1; }
 
 echo "正在設定 NodeJS v17+ 環境變數..."
 export NODE_OPTIONS=--openssl-legacy-provider
 
 echo "正在建置前端資源..."
-yarn build:production
+yarn build:production || { echo "yarn build:production 指令失敗，腳本終止。"; exit 1; }
 
 # 詢問是否清除快取
 read -p "是否要清除 Laravel 快取? (y/n): " clear_cache
