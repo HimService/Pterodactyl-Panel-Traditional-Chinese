@@ -13,18 +13,22 @@ NC='\033[0m' # No Color
 printf "\033c"
 
 # --- 歡迎訊息 ---
-echo -e "${CYAN}################################################################${NC}"
-echo -e "${CYAN}#                                                              #${NC}"
-echo -e "${CYAN}#      Pterodactyl Panel 繁體中文翻譯安裝腳本      #${NC}"
-echo -e "${CYAN}#                                                              #${NC}"
-echo -e "${CYAN}################################################################${NC}"
+echo -e "${CYAN}########################################################################${NC}"
+echo -e "${CYAN}#                                                                      #${NC}"
+echo -e "${CYAN}#                 Pterodactyl Panel 繁體中文翻譯安裝腳本                 #${NC}"
+echo -e "${CYAN}#                                                                      #${NC}"
+echo -e "${CYAN}#                   你正在使用HimService專案安裝腳本安裝                 #${NC}"
+echo -e "${CYAN}#                                                                      #${NC}"
+echo -e "${CYAN}# https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese  #${NC}"
+echo -e "${CYAN}#                                                                      #${NC}"
+echo -e "${CYAN}########################################################################${NC}"
 echo ""
 
 # --- 版本選擇 ---
-echo -e "${CYAN}-------------------------- [ 1. 版本選擇 ] ---------------------------${NC}"
-echo -e "${YELLOW}可用的面板翻譯版本：${NC}"
-echo "1) v1.11.10"
-echo "2) v1.11.7"
+echo -e "${CYAN}-------------------------- [ 面板版本選擇 ] ---------------------------${NC}"
+echo -e "${YELLOW}當前可用的面板翻譯版本：${NC}"
+echo "1) v1.11.10-測試版"
+echo "2) v1.11.7-測試版"
 read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-2): ${NC}")" version_choice
 
 case $version_choice in
@@ -44,7 +48,7 @@ echo -e "${GREEN}您選擇了版本: $VERSION${NC}"
 echo ""
 
 # --- 路徑設定 ---
-echo -e "${CYAN}------------------------ [ 2. 面板路徑設定 ] -------------------------${NC}"
+echo -e "${CYAN}------------------------ [ 面板路徑設定 ] -------------------------${NC}"
 read -p "$(echo -e "${YELLOW}請輸入您的 Pterodactyl 面板安裝路徑 (預設: /var/www/pterodactyl): ${NC}")" PTERODACTYL_PATH
 PTERODACTYL_PATH=${PTERODACTYL_PATH:-/var/www/pterodactyl}
 
@@ -68,7 +72,7 @@ if [ ! -d "$TEMP_DIR" ]; then
 fi
 
 # --- 下載與解壓縮 ---
-echo -e "${CYAN}------------------------ [ 3. 下載翻譯檔案 ] -------------------------${NC}"
+echo -e "${CYAN}------------------------ [ 下載翻譯檔案 ] -------------------------${NC}"
 DOWNLOAD_URL="https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese/archive/refs/heads/main.zip"
 echo -e "${YELLOW}正在從 $DOWNLOAD_URL 下載最新的翻譯儲存庫...${NC}"
 if ! curl -L -o "$TEMP_DIR/repo.zip" "$DOWNLOAD_URL"; then
@@ -87,7 +91,7 @@ if ! unzip -o "$TEMP_DIR/repo.zip" -d "$TEMP_DIR"; then
 fi
 
 # --- 替換檔案 ---
-echo -e "${CYAN}------------------------ [ 4. 替換面板檔案 ] -------------------------${NC}"
+echo -e "${CYAN}------------------------ [ 替換面板檔案 ] -------------------------${NC}"
 cd "$PTERODACTYL_PATH" || exit
 echo -e "${YELLOW}正在備份並刪除舊的 resources 資料夾...${NC}"
 BACKUP_NAME="resources_backup_$(date +%Y%m%d_%H%M%S)"
@@ -128,7 +132,7 @@ echo -e "${GREEN}resources 資料夾替換成功。${NC}"
 echo ""
 
 # --- 安裝與建置 ---
-echo -e "${CYAN}---------------------- [ 5. 安裝前端套件並建置 ] -----------------------${NC}"
+echo -e "${CYAN}---------------------- [ 安裝前端套件並建置 ] -----------------------${NC}"
 echo -e "${YELLOW}正在運行 yarn install...${NC}"
 yarn install --pure-lockfile || { echo -e "${RED}yarn install 指令失敗，腳本終止。${NC}"; exit 1; }
 
@@ -157,6 +161,8 @@ echo -e "${GREEN}快取已清除。${NC}"
 echo ""
 echo -e "${GREEN}################################################################${NC}"
 echo -e "${GREEN}#                                                              #${NC}"
-echo -e "${GREEN}#      Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功！      #${NC}"
+echo -e "${GREEN}#      Pterodactyl Panel 繁體中文翻譯版本 $VERSION 安裝成功      #${NC}"
+echo -e "${GREEN}#                                                              #${NC}"
+echo -e "${GREEN}#               感謝您使用HimService專案安裝腳本                 #${NC}"
 echo -e "${GREEN}#                                                              #${NC}"
 echo -e "${GREEN}################################################################${NC}"
