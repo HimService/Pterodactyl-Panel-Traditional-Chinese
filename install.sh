@@ -115,7 +115,7 @@ fi
 
 echo -e "${YELLOW}正在從解壓縮的資料夾中複製 $VERSION 的 resources 資料夾...${NC}"
 if ! cp -r "$SOURCE_RESOURCES" "."; then
-    echo -e "${RED}複製 resources 資料夾失敗。${NC}"
+    echo -e "${RED}複製 resources 資料夾失敗，是否有使用root權限?${NC}"
     # 如果複製失敗，還原備份
     if [ -d "$BACKUP_NAME" ]; then
          mv "$BACKUP_NAME" resources
