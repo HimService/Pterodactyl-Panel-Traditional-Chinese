@@ -19,7 +19,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">API列表</h3>
                     <div class="box-tools">
-                        <a href="{{ route('admin.api.new') }}" class="btn btn-sm btn-primary">建立新的</a>
+                        <a href="{{ route('admin.api.new') }}" class="btn btn-sm btn-primary">建立新的API</a>
                     </div>
                 </div>
                 <div class="box-body table-responsive no-padding">
