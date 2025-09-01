@@ -7,7 +7,7 @@ export default async (uuid: string, directory: string, file: string): Promise<vo
         {
             timeout: 300000,
             timeoutErrorMessage:
-                'It looks like this archive is taking a long time to be unarchived. Once completed the unarchived files will appear.',
+                '這個壓縮檔似乎需要很長時間才能解壓縮。完成後，解壓縮的檔案將會出現在檔案列表中。',
         }
     );
 };
