@@ -297,7 +297,7 @@
                 </div>
 
                 <div class="box-header with-border" style="margin-top:-10px;">
-                    <h3 class="box-title">服務變數</h3>
+                    <h3 class="box-title">核心相關變數</h3>
                 </div>
 
                 <div class="box-body row" id="appendVariablesTo"></div>
