@@ -36,7 +36,7 @@
                         <tr>
                             <th>ID</th>
                             <th>電子郵件</th>
-                            <th>用戶端名稱</th>
+                            <th>核心相關變數</th>
                             <th>使用者名稱</th>
                             <th class="text-center">兩步驟驗證</th>
                             <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="此使用者被標記為擁有者的伺服器。">擁有的伺服器</span></th>
