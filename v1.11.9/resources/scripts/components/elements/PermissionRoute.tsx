@@ -18,7 +18,7 @@ export default ({ permission, children, ...props }: Props) => (
                 matchAny
                 action={permission}
                 renderOnError={
-                    <ServerError title={'Access Denied'} message={'You do not have permission to access this page.'} />
+                    <ServerError title={'存取被拒'} message={'您沒有權限存取此頁面。'} />
                 }
             >
                 {children}
