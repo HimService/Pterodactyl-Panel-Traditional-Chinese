@@ -196,7 +196,7 @@ export default ({ style, initialContent, filename, mode, fetchContent, onContent
 
     useEffect(() => {
         if (!editor) {
-            fetchContent(() => Promise.reject(new Error('no editor session has been configured')));
+            fetchContent(() => Promise.reject(new Error('沒有設定編輯器工作階段')));
             return;
         }
 
