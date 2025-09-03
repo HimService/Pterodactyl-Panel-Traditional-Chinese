@@ -26,7 +26,7 @@ const CopyOnClick = ({ text, showInNotification = true, children }: CopyOnClickP
     }, [copied]);
 
     if (!React.isValidElement(children)) {
-        throw new Error('Component passed to <CopyOnClick/> must be a valid React element.');
+        throw new Error('傳遞給 <CopyOnClick/> 的元件必須是有效的 React 元素。');
     }
 
     const child = !text
@@ -52,7 +52,7 @@ const CopyOnClick = ({ text, showInNotification = true, children }: CopyOnClickP
                                 <p>
                                     {showInNotification
                                         ? `已複製 "${String(text)}" 到剪貼簿`
-                                        : '已複製文字到剪貼簿'}
+                                        : '已複製到剪貼簿'}
                                 </p>
                             </div>
                         </div>
