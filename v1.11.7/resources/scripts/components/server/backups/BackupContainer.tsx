@@ -44,7 +44,7 @@ const BackupContainer = () => {
                             <p css={tw`text-center text-sm text-neutral-300`}>
                                 {page > 1
                                     ? '看來我們已經沒有備份可以顯示了，請試著回到上一頁。'
-                                    : '此伺-服器目前似乎沒有儲存任何備份。'}
+                                    : '此伺服器目前似乎沒有儲存任何備份。'}
                             </p>
                         )
                     ) : (
