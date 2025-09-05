@@ -95,7 +95,7 @@ const EditScheduleModal = ({ schedule }: Props) => {
                     <Field
                         name={'name'}
                         label={'排程名稱'}
-                        description={'此排程的人類可讀識別碼。'}
+                        description={'此排程組的名稱。'}
                     />
                     <div css={tw`grid grid-cols-2 sm:grid-cols-5 gap-4 mt-6`}>
                         <Field name={'minute'} label={'分鐘'} />
