@@ -19,7 +19,7 @@
 您可以選擇兩種安裝方式，腳本安裝或手動安裝翻譯
 
 ### 腳本安裝
-使用腳本安裝可以更加快速的安裝翻譯內容，您只需要指定版本與面板路徑，腳本將自動安裝、編譯，並完成套用
+使用腳本安裝可以更加快速的安裝翻譯內容，您只需要指定版本與面板路徑，腳本將自動安裝、備份、替換、編譯，並完成套用
 
 ```bash
 bash <(curl -sSL https://raw.githubusercontent.com/HimService/Pterodactyl-Panel-Traditional-Chinese/main/install.sh)
