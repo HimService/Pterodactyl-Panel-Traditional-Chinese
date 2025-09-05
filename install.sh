@@ -29,8 +29,9 @@ echo -e "${CYAN}-------------------------- [ 版本選擇 ] --------------------
 echo -e "${YELLOW}可用的面板翻譯版本：${NC}"
 echo "1) v1.11.11-測試版"
 echo "2) v1.11.10-測試版"
-echo "3) v1.11.7-測試版"
-read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-3): ${NC}")" version_choice
+echo "3) v1.11.9-測試版"
+echo "4) v1.11.7-測試版"
+read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-4): ${NC}")" version_choice
 
 case $version_choice in
     1)
@@ -41,6 +42,9 @@ case $version_choice in
         VERSION="v1.11.10"
         ;;
     3)
+        VERSION="v1.11.9"
+        ;;
+    4)
         VERSION="v1.11.7"
         ;;
     *)
