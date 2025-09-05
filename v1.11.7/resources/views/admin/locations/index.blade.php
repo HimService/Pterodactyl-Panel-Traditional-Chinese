@@ -58,7 +58,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="pShortModal" class="form-label">簡稱</label>
+                            <label for="pShortModal" class="form-label">名稱</label>
                             <input type="text" name="short" id="pShortModal" class="form-control" />
                             <p class="text-muted small">用於區分此地點與其他地點的簡短識別碼。長度必須介於 1 到 60 個字元之間，例如 <code>us.nyc.lvl3</code>。</p>
                         </div>
