@@ -27,7 +27,7 @@
                     <tbody>
                         <tr>
                             <th>ID</th>
-                            <th>簡稱</th>
+                            <th>名稱</th>
                             <th>描述</th>
                             <th class="text-center">節點</th>
                             <th class="text-center">伺服器</th>
