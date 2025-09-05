@@ -38,8 +38,7 @@
                             <th>UUID</th>
                             <th>擁有者</th>
                             <th>節點</th>
-                            <th>連線</th>
-                            <th></th>
+                            <th>連線位置</th>                            <th></th>
                             <th></th>
                         </tr>
                         @foreach ($servers as $server)
