@@ -52,7 +52,7 @@ export default {
         },
         {
             path: '/api',
-            name: 'API 憑證',
+            name: 'API 金鑰',
             component: AccountApiContainer,
         },
         {
