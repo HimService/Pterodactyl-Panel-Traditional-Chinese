@@ -54,7 +54,7 @@ export default () => {
                 updateToken(uuid, socket);
             } else {
                 setError(
-                    'There was an error validating the credentials provided for the websocket. Please refresh the page.'
+                    '驗證提供的 websocket 憑證時發生錯誤。請重新整理頁面。'
                 );
             }
         });
@@ -112,7 +112,7 @@ export default () => {
                         <>
                             <Spinner size={'small'} />
                             <p css={tw`ml-2 text-sm text-red-100`}>
-我們在連接至您的伺服器時發生了一些困難，請稍後。
+                                我們在連接至您的伺服器時發生了一些困難，請稍後。
                             </p>
                         </>
                     ) : (
