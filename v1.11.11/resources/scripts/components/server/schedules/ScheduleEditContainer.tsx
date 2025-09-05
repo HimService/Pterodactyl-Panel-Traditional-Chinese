@@ -36,7 +36,7 @@ const ActivePill = ({ active }: { active: boolean }) => (
             active ? tw`bg-green-600 text-green-100` : tw`bg-red-600 text-red-100`,
         ]}
     >
-        {active ? '作用中' : '非作用中'}
+        {active ? '啟用' : '非啟用'}
     </span>
 );
 
