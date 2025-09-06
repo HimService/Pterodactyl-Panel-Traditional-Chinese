@@ -1,16 +1,16 @@
 @extends('layouts.admin')
 
 @section('title')
-    Server — {{ $server->name }}: Startup
+    伺服器 — {{ $server->name }}: 啟動
 @endsection
 
 @section('content-header')
-    <h1>{{ $server->name }}<small>Control startup command as well as variables.</small></h1>
+    <h1>{{ $server->name }}<small>控制啟動指令以及變數。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li><a href="{{ route('admin.servers') }}">Servers</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li><a href="{{ route('admin.servers') }}">伺服器</a></li>
         <li><a href="{{ route('admin.servers.view', $server->id) }}">{{ $server->name }}</a></li>
-        <li class="active">Startup</li>
+        <li class="active">啟動</li>
     </ol>
 @endsection
 
@@ -21,20 +21,20 @@
         <div class="col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Startup Command Modification</h3>
+                    <h3 class="box-title">啟動指令修改</h3>
                 </div>
                 <div class="box-body">
-                    <label for="pStartup" class="form-label">Startup Command</label>
+                    <label for="pStartup" class="form-label">啟動指令</label>
                     <input id="pStartup" name="startup" class="form-control" type="text" value="{{ old('startup', $server->startup) }}" />
-                    <p class="small text-muted">Edit your server's startup command here. The following variables are available by default: <code>@{{SERVER_MEMORY}}</code>, <code>@{{SERVER_IP}}</code>, and <code>@{{SERVER_PORT}}</code>.</p>
+                    <p class="small text-muted">在此編輯您伺服器的啟動指令。預設情況下，可以使用以下變數：<code>@{{SERVER_MEMORY}}</code>、<code>@{{SERVER_IP}}</code> 和 <code>@{{SERVER_PORT}}</code>。</p>
                 </div>
                 <div class="box-body">
-                    <label for="pDefaultStartupCommand" class="form-label">Default Service Start Command</label>
+                    <label for="pDefaultStartupCommand" class="form-label">預設服務啟動指令</label>
                     <input id="pDefaultStartupCommand" class="form-control" type="text" readonly />
                 </div>
                 <div class="box-footer">
                     {!! csrf_field() !!}
-                    <button type="submit" class="btn btn-primary btn-sm pull-right">Save Modifications</button>
+                    <button type="submit" class="btn btn-primary btn-sm pull-right">儲存修改</button>
                 </div>
             </div>
         </div>
@@ -43,20 +43,20 @@
         <div class="col-md-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Service Configuration</h3>
+                    <h3 class="box-title">服務組態</h3>
                 </div>
                 <div class="box-body row">
                     <div class="col-xs-12">
                         <p class="small text-danger">
-                            Changing any of the below values will result in the server processing a re-install command. The server will be stopped and will then proceed.
-                            If you would like the service scripts to not run, ensure the box is checked at the bottom.
+                            變更以下任何值都將導致伺服器處理重新安裝指令。伺服器將被停止然後繼續。
+                            如果您不希望執行服務腳本，請確保選中底部的方塊。
                         </p>
                         <p class="small text-danger">
-                            <strong>This is a destructive operation in many cases. This server will be stopped immediately in order for this action to proceed.</strong>
+                            <strong>在許多情況下，這是一個破壞性操作。為了繼續此操作，此伺服器將立即停止。</strong>
                         </p>
                     </div>
                     <div class="form-group col-xs-12">
-                        <label for="pNestId">Nest</label>
+                        <label for="pNestId">巢</label>
                         <select name="nest_id" id="pNestId" class="form-control">
                             @foreach($nests as $nest)
                                 <option value="{{ $nest->id }}"
@@ -66,32 +66,32 @@
                                 >{{ $nest->name }}</option>
                             @endforeach
                         </select>
-                        <p class="small text-muted no-margin">Select the Nest that this server will be grouped into.</p>
+                        <p class="small text-muted no-margin">選擇此伺服器將歸入的巢。</p>
                     </div>
                     <div class="form-group col-xs-12">
-                        <label for="pEggId">Egg</label>
+                        <label for="pEggId">環境</label>
                         <select name="egg_id" id="pEggId" class="form-control"></select>
-                        <p class="small text-muted no-margin">Select the Egg that will provide processing data for this server.</p>
+                        <p class="small text-muted no-margin">選擇將為此伺服器提供處理資料的環境。</p>
                     </div>
                     <div class="form-group col-xs-12">
                         <div class="checkbox checkbox-primary no-margin-bottom">
                             <input id="pSkipScripting" name="skip_scripts" type="checkbox" value="1" @if($server->skip_scripts) checked @endif />
-                            <label for="pSkipScripting" class="strong">Skip Egg Install Script</label>
+                            <label for="pSkipScripting" class="strong">跳過環境安裝腳本</label>
                         </div>
-                        <p class="small text-muted no-margin">If the selected Egg has an install script attached to it, the script will run during install. If you would like to skip this step, check this box.</p>
+                        <p class="small text-muted no-margin">如果選定的環境附加了安裝腳本，則該腳本將在安裝過程中執行。如果您想跳過此步驟，請勾選此方塊。</p>
                     </div>
                 </div>
             </div>
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Docker Image Configuration</h3>
+                    <h3 class="box-title">Docker 映像組態</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="pDockerImage">Image</label>
+                        <label for="pDockerImage">映像</label>
                         <select id="pDockerImage" name="docker_image" class="form-control"></select>
-                        <input id="pDockerImageCustom" name="custom_docker_image" value="{{ old('custom_docker_image') }}" class="form-control" placeholder="Or enter a custom image..." style="margin-top:1rem"/>
-                        <p class="small text-muted no-margin">This is the Docker image that will be used to run this server. Select an image from the dropdown or enter a custom image in the text field above.</p>
+                        <input id="pDockerImageCustom" name="custom_docker_image" value="{{ old('custom_docker_image') }}" class="form-control" placeholder="或輸入自訂映像..." style="margin-top:1rem"/>
+                        <p class="small text-muted no-margin">這是將用於執行此伺服器的 Docker 映像。從下拉式選單中選擇一個映像，或在上面的文字欄位中輸入自訂映像。</p>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
     {!! Theme::js('vendor/lodash/lodash.js') !!}
     <script>
     $(document).ready(function () {
-        $('#pEggId').select2({placeholder: 'Select a Nest Egg'}).on('change', function () {
+        $('#pEggId').select2({placeholder: '選擇一個巢環境'}).on('change', function () {
             var selectedEgg = _.isNull($(this).val()) ? $(this).find('option').first().val() : $(this).val();
             var parentChain = _.get(Jexactyl.nests, $("#pNestId").val());
             var objectChain = _.get(parentChain, 'eggs.' + selectedEgg);
@@ -144,7 +144,7 @@
             $('#appendVariablesTo').html('');
             $.each(_.get(objectChain, 'variables', []), function (i, item) {
                 var setValue = _.get(Jexactyl.server_variables, item.env_variable, item.default_value);
-                var isRequired = (item.required === 1) ? '<span class="label label-danger">Required</span> ' : '';
+                var isRequired = (item.required === 1) ? '<span class="label label-danger">必填</span> ' : '';
                 var dataAppend = ' \
                     <div class="col-xs-12"> \
                         <div class="box"> \
@@ -156,8 +156,8 @@
                                 <p class="no-margin small text-muted">' + item.description + '</p> \
                             </div> \
                             <div class="box-footer"> \
-                                <p class="no-margin text-muted small"><strong>Startup Command Variable:</strong> <code>' + item.env_variable + '</code></p> \
-                                <p class="no-margin text-muted small"><strong>Input Rules:</strong> <code>' + item.rules + '</code></p> \
+                                <p class="no-margin text-muted small"><strong>啟動指令變數：</strong> <code>' + item.env_variable + '</code></p> \
+                                <p class="no-margin text-muted small"><strong>輸入規則：</strong> <code>' + item.rules + '</code></p> \
                             </div> \
                         </div> \
                     </div>';
@@ -165,7 +165,7 @@
             });
         });
 
-        $('#pNestId').select2({placeholder: 'Select a Nest'}).on('change', function () {
+        $('#pNestId').select2({placeholder: '選擇一個巢'}).on('change', function () {
             $('#pEggId').html('').select2({
                 data: $.map(_.get(Jexactyl.nests, $(this).val() + '.eggs', []), function (item) {
                     return {
