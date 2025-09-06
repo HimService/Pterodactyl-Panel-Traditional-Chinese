@@ -38,7 +38,7 @@
                         <a href="{{ route('admin.jexactyl.alerts') }}">警報</a>
                     </li>
                     <li @if($activeTab === 'coupons') class="active" @endif>
-                        <a href="{{ route('admin.jexactyl.coupons') }}">優惠券</a>
+                        <a href="{{ route('admin.jexactyl.coupons') }}">兌換碼</a>
                     </li>
                 </ul>
             </div>

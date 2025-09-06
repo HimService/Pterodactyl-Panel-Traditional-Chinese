@@ -32,10 +32,10 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="control-label">Panel Logo</label>
+                                <label class="control-label">面板 Logo</label>
                                 <div>
                                     <input type="text" class="form-control" name="app:logo" value="{{ $logo }}" />
-                                    <p class="text-muted"><small>The logo which is used for the Panel&apos;s frontend.</small></p>
+                                    <p class="text-muted"><small>用於面板前端的Logo。</small></p>
                                 </div>
                             </div>
                         </div>

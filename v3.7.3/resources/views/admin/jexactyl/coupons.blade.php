@@ -2,11 +2,11 @@
 @include('partials/admin.jexactyl.nav', ['activeTab' => 'coupons'])
 
 @section('title')
-    優惠券
+    兌換碼
 @endsection
 
 @section('content-header')
-    <h1>優惠券<small>建立和管理優惠券。</small></h1>
+    <h1>兌換碼<small>建立和管理兌換碼。</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li class="active">Jexactyl</li>
@@ -21,7 +21,7 @@
                 <div class="box @if($enabled) box-success @else box-danger @endif">
                     <div class="box-header with-border">
                         <i class="fa fa-cash"></i>
-                        <h3 class="box-title">優惠券系統</h3>
+                        <h3 class="box-title">兌換碼系統</h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -47,14 +47,14 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">建立優惠券</h3>
+                        <h3 class="box-title">建立兌換碼</h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label for="code">代碼</label>
                                 <input type="text" name="code" id="code" class="form-control"/>
-                                <small>優惠券的唯一代碼。</small>
+                                <small>兌換碼的唯一代碼。</small>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="credits">點數</label>
@@ -64,12 +64,12 @@
                             <div class="form-group col-md-3">
                                 <label for="expires">到期時間</label>
                                 <input type="number" name="expires" id="expires" class="form-control" value="12"/>
-                                <small>優惠券到期前的小時數。留空則永不過期。</small>
+                                <small>兌換碼到期前的小時數。留空則永不過期。</small>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="uses">最大使用次數</label>
                                 <input type="number" name="uses" id="uses" class="form-control" value="1"/>
-                                <small>此優惠券可使用的最大次數。</small>
+                                <small>此兌換碼可使用的最大次數。</small>
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">優惠券</h3>
+                    <h3 class="box-title">兌換碼</h3>
                 </div>
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
