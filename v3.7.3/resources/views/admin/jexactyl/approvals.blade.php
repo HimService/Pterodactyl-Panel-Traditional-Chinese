@@ -2,13 +2,13 @@
 @include('partials/admin.jexactyl.nav', ['activeTab' => 'approvals'])
 
 @section('title')
-    User Approvals
+    使用者核准
 @endsection
 
 @section('content-header')
-    <h1>User Approvals<small>Allow or deny requests to create accounts.</small></h1>
+    <h1>使用者核准<small>允許或拒絕建立帳戶的請求。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li class="active">Jexactyl</li>
     </ol>
 @endsection
@@ -27,30 +27,30 @@
                 ">
                     <div class="box-header with-border">
                         <i class="fa fa-users"></i>
-                        <h3 class="box-title">Approval System <small>Decide whether the approval system is enabled or disabled.</small></h3>
+                        <h3 class="box-title">核准系統 <small>決定核准系統是啟用還是停用。</small></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <label class="control-label">Enabled</label>
+                                <label class="control-label">已啟用</label>
                                 <div>
                                     <select name="enabled" class="form-control">
-                                        <option @if ($enabled == 'false') selected @endif value="false">Disabled</option>
-                                        <option @if ($enabled == 'true') selected @endif value="true">Enabled</option>
+                                        <option @if ($enabled == 'false') selected @endif value="false">已停用</option>
+                                        <option @if ($enabled == 'true') selected @endif value="true">已啟用</option>
                                     </select>
-                                    <p class="text-muted"><small>Determines whether users must be approved by an admin to use the Panel.</small></p>
+                                    <p class="text-muted"><small>決定使用者是否必須由管理員核准才能使用面板。</small></p>
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="control-label" for="webhook">Webhook URL</label>
+                                <label class="control-label" for="webhook">Webhook 網址</label>
                                 <input name="webhook" id="webhook" class="form-control" value="{{ $webhook }}">
-                                <p class="text-muted"><small>Provide the Discord Webhook URL to use when a user needs to be approved.</small></p>
+                                <p class="text-muted"><small>提供當使用者需要核准時要使用的 Discord Webhook 網址。</small></p>
                             </div>
                         </div>
                     </div>
                     <div class="box box-footer">
                         {!! csrf_field() !!}
-                        <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">Save Changes</button>
+                        <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">儲存變更</button>
                     </div>
                 </div>
             </div>
@@ -61,24 +61,24 @@
             <div class="box box-success">
                 <div class="box-header with-border">
                     <i class="fa fa-list"></i>
-                    <h3 class="box-title">Approval Requests <small>Allow or deny requests to create accounts.</small></h3>
+                    <h3 class="box-title">核准請求 <small>允許或拒絕建立帳戶的請求。</small></h3>
                     <form id="massdenyform" action="{{ route('admin.jexactyl.approvals.all', 'deny') }}" method="POST">
                         {!! csrf_field() !!}
-                        <button id="denyAllBtn" class="btn btn-danger pull-right">Deny All</button>
+                        <button id="denyAllBtn" class="btn btn-danger pull-right">全部拒絕</button>
                     </form>
                     <form id="massapproveform" action="{{ route('admin.jexactyl.approvals.all', 'approve') }}" method="POST">
                         {!! csrf_field() !!}
-                        <button id="approveAllBtn" class="btn btn-success pull-right">Approve All</button>
+                        <button id="approveAllBtn" class="btn btn-success pull-right">全部核准</button>
                     </form>
                  </div>
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tbody>
                             <tr>
-                                <th>User ID</th>
-                                <th>Email</th>
-                                <th>Username</th>
-                                <th>Registered</th>
+                                <th>使用者 ID</th>
+                                <th>電子郵件</th>
+                                <th>使用者名稱</th>
+                                <th>已註冊</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -130,10 +130,10 @@
 
         swal({
             type: 'error',
-            title: 'Deny this request?',
-            text: 'This will remove this user from the Panel immediately.',
+            title: '拒絕此請求？',
+            text: '這將立即從面板中移除此使用者。',
             showCancelButton: true,
-            confirmButtonText: 'Deny',
+            confirmButtonText: '拒絕',
             confirmButtonColor: 'red',
             closeOnConfirm: false
         }, function () {
@@ -146,10 +146,10 @@
 
         swal({
             type: 'success',
-            title: 'Approve this request?',
-            text: 'This user will gain access to the Panel immediately.',
+            title: '核准此請求？',
+            text: '此使用者將立即獲得面板的存取權限。',
             showCancelButton: true,
-            confirmButtonText: 'Approve',
+            confirmButtonText: '核准',
             confirmButtonColor: 'green',
             closeOnConfirm: false
         }, function () {
@@ -160,10 +160,10 @@
     $('#approveAllBtn').click(function (event) {
         event.preventDefault();
         swal({
-            title: 'Approve All Users?',
-            text: 'This will approve all of the users waiting for approval.',
+            title: '核准所有使用者？',
+            text: '這將核准所有等待核准的使用者。',
             showCancelButton: true,
-            confirmButtonText: 'Approve All',
+            confirmButtonText: '全部核准',
             confirmButtonColor: 'green',
             closeOnConfirm: false
         }, function () {
@@ -174,10 +174,10 @@
     $('#denyAllBtn').click(function (event) {
         event.preventDefault();
         swal({
-            title: 'Deny All Users?',
-            text: 'This will deny all of the users waiting for approval.',
+            title: '拒絕所有使用者？',
+            text: '這將拒絕所有等待核准的使用者。',
             showCancelButton: true,
-            confirmButtonText: 'Deny All',
+            confirmButtonText: '全部拒絕',
             confirmButtonColor: 'red',
             closeOnConfirm: false
         }, function () {

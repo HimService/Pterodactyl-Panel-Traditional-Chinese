@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
 @section('title')
-    Application API
+    應用程式 API
 @endsection
 
 @section('content-header')
-    <h1>Application API<small>Create a new application API key.</small></h1>
+    <h1>應用程式 API<small>建立一個新的應用程式 API 金鑰。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li><a href="{{ route('admin.api.index') }}">Application API</a></li>
-        <li class="active">New Credentials</li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li><a href="{{ route('admin.api.index') }}">應用程式 API</a></li>
+        <li class="active">新憑證</li>
     </ol>
 @endsection
 
@@ -48,14 +48,14 @@
                 <div class="box box-primary">
                     <div class="box-body">
                         <div class="form-group">
-                            <label class="control-label" for="memoField">Description <span class="field-required"></span></label>
+                            <label class="control-label" for="memoField">描述 <span class="field-required"></span></label>
                             <input id="memoField" type="text" name="memo" class="form-control">
                         </div>
-                        <p class="text-muted">Once you have assigned permissions and created this set of credentials you will be unable to come back and edit it. If you need to make changes down the road you will need to create a new set of credentials.</p>
+                        <p class="text-muted">一旦您分配了權限並建立了這組憑證，您將無法回來編輯它。如果您將來需要進行更改，則需要建立一組新的憑證。</p>
                     </div>
                     <div class="box-footer">
                         {{ csrf_field() }}
-                        <button type="submit" class="btn btn-success btn-sm pull-right">Create Credentials</button>
+                        <button type="submit" class="btn btn-success btn-sm pull-right">建立憑證</button>
                     </div>
                 </div>
             </div>

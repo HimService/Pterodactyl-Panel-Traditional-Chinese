@@ -2,13 +2,13 @@
 @include('partials/admin.jexactyl.nav', ['activeTab' => 'server'])
 
 @section('title')
-    Jexactyl Servers
+    Jexactyl 伺服器
 @endsection
 
 @section('content-header')
-    <h1>Server Settings<small>Configure Jexactyl's server settings.</small></h1>
+    <h1>伺服器設定<small>設定 Jexactyl 的伺服器選項。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li class="active">Jexactyl</li>
     </ol>
 @endsection
@@ -26,38 +26,38 @@
                     @endif
                 ">
                     <div class="box-header with-border">
-                        <i class="fa fa-clock-o"></i> <h3 class="box-title">Server Renewals <small>Configure settings for server renewals.</small></h3>
+                        <i class="fa fa-clock-o"></i> <h3 class="box-title">伺服器續約 <small>設定伺服器續約選項。</small></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <label class="control-label">Renewal System</label>
+                                <label class="control-label">續約系統</label>
                                 <div>
                                     <select name="enabled" class="form-control">
-                                        <option @if ($enabled == 'false') selected @endif value="false">Disabled</option>
-                                        <option @if ($enabled == 'true') selected @endif value="true">Enabled</option>
+                                        <option @if ($enabled == 'false') selected @endif value="false">禁用</option>
+                                        <option @if ($enabled == 'true') selected @endif value="true">啟用</option>
                                     </select>
-                                    <p class="text-muted"><small>Determines whether users must renew their servers.</small></p>
+                                    <p class="text-muted"><small>決定使用者是否必須續約他們的伺服器。</small></p>
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="control-label">Default Renewal Timer</label>
+                                <label class="control-label">預設續約計時器</label>
                                 <div>
                                     <div class="input-group">
                                         <input type="text" id="default" name="default" class="form-control" value="{{ $default }}" />
-                                        <span class="input-group-addon">days</span>
+                                        <span class="input-group-addon">天</span>
                                     </div>
-                                    <p class="text-muted"><small>Determines the amount of days that servers have before their first renewal is due.</small></p>
+                                    <p class="text-muted"><small>決定伺服器在首次續約到期前有多少天。</small></p>
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="control-label">Renewal cost</label>
+                                <label class="control-label">續約費用</label>
                                 <div>
                                     <div class="input-group">
                                         <input type="text" id="cost" name="cost" class="form-control" value="{{ $cost }}" />
-                                        <span class="input-group-addon">credits</span>
+                                        <span class="input-group-addon">點數</span>
                                     </div>
-                                    <p class="text-muted"><small>Determines the amount of credits that a renewal costs.</small></p>
+                                    <p class="text-muted"><small>決定續約需要花費多少點數。</small></p>
                                 </div>
                             </div>
                         </div>
@@ -71,35 +71,35 @@
                     @endif
                 ">
                     <div class="box-header with-border">
-                        <i class="fa fa-server"></i> <h3 class="box-title">Server Settings <small>Configure settings for servers.</small></h3>
+                        <i class="fa fa-server"></i> <h3 class="box-title">伺服器設定 <small>設定伺服器選項。</small></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <label class="control-label">Server Resource Editing</label>
+                                <label class="control-label">伺服器資源編輯</label>
                                 <div>
                                     <select name="editing" class="form-control">
-                                        <option @if ($editing == 'false') selected @endif value="false">Disabled</option>
-                                        <option @if ($editing == 'true') selected @endif value="true">Enabled</option>
+                                        <option @if ($editing == 'false') selected @endif value="false">禁用</option>
+                                        <option @if ($editing == 'true') selected @endif value="true">啟用</option>
                                     </select>
-                                    <p class="text-muted"><small>Determines whether users can edit the amount of resources assigned to their server.</small></p>
+                                    <p class="text-muted"><small>決定使用者是否可以編輯分配給他們伺服器的資源數量。</small></p>
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="control-label">Allow Server Deletion</label>
+                                <label class="control-label">允許刪除伺服器</label>
                                 <div>
                                     <select name="deletion" class="form-control">
-                                        <option @if ($deletion == 'false') selected @endif value="false">Disabled</option>
-                                        <option @if ($deletion == 'true') selected @endif value="true">Enabled</option>
+                                        <option @if ($deletion == 'false') selected @endif value="false">禁用</option>
+                                        <option @if ($deletion == 'true') selected @endif value="true">啟用</option>
                                     </select>
-                                    <p class="text-muted"><small>Determines whether users are able to delete their own servers. (default: true)</small></p>
+                                    <p class="text-muted"><small>決定使用者是否能夠刪除自己的伺服器。(預設: true)</small></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 {!! csrf_field() !!}
-                <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">Save Changes</button>
+                <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">儲存變更</button>
             </form>
         </div>
     </div>

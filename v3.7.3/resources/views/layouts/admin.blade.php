@@ -26,7 +26,7 @@
             {!! Theme::css('vendor/adminlte/colors/skin-blue.min.css?t={cache-version}') !!}
             {!! Theme::css('vendor/sweetalert/sweetalert.min.css?t={cache-version}') !!}
             {!! Theme::css('vendor/animate/animate.min.css?t={cache-version}') !!}
-            <!-- Ability to customize Jexactyl theme -->
+            <!-- 可自訂 Jexactyl 主題 -->
             <link rel="stylesheet" href="/themes/{{ config('theme.admin', 'jexactyl') }}/css/{{ config('theme.admin', 'jexactyl') }}.css">
 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -105,7 +105,7 @@
                         <div class="col-xs-12">
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
-                                    There was an error validating the data provided.<br><br>
+                                    驗證提供的資料時發生錯誤。<br><br>
                                     <ul>
                                         @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
@@ -151,12 +151,12 @@
 
                         var that = this;
                         swal({
-                            title: 'Do you want to log out?',
+                            title: '您確定要登出嗎？',
                             type: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#d9534f',
                             cancelButtonColor: '#d33',
-                            confirmButtonText: 'Log out'
+                            confirmButtonText: '登出'
                         }, function () {
                              $.ajax({
                                 type: 'POST',
