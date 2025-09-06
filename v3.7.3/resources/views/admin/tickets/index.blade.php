@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('title')
-    Ticket 列表
+    票務列表
 @endsection
 
 @section('content-header')
-    <h1>Tickets<small>查看系統上的所有 Ticket。</small></h1>
+    <h1>Tickets<small>查看系統上的所有票務。</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li class="active">Tickets</li>
+        <li class="active">票務</li>
     </ol>
 @endsection
 
@@ -18,12 +18,12 @@
         <form action="{{ route('admin.tickets.index') }}" method="POST">
             <div class="box @if($enabled == 'true') box-success @else box-danger @endif">
                 <div class="box-header with-border">
-                    <i class="fa fa-ticket"></i> <h3 class="box-title">Ticket 系統 <small>切換是否可以使用 Ticket。</small></h3>
+                    <i class="fa fa-ticket"></i> <h3 class="box-title">票務系統 <small>切換設定是否可以使用票務</small></h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <label class="control-label">允許建立 Ticket？</label>
+                            <label class="control-label">允許建立票務？</label>
                             <div>
                                 <select name="enabled" class="form-control">
                                     <option @if ($enabled == 'false') selected @endif value="false">禁用</option>
@@ -33,10 +33,10 @@
                             </div>
                         </div>
                         <div class="form-group col-md-4">
-                                <label class="control-label">Ticket 最大數量</label>
+                                <label class="control-label">票單最大數量</label>
                                 <div>
                                     <input type="text" class="form-control" name="max" value="{{ $max }}" />
-                                    <p class="text-muted"><small>設定使用者可以建立的 Ticket 最大數量。</small></p>
+                                    <p class="text-muted"><small>設定使用者可以建立的票單最大數量。</small></p>
                                 </div>
                             </div>
                     </div>
@@ -47,13 +47,13 @@
         </form>
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Ticket 列表</h3>
+                <h3 class="box-title">票單列表</h3>
             </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tbody>
                         <tr>
-                            <th>Ticket ID</th>
+                            <th>票單 ID</th>
                             <th>客戶電子郵件</th>
                             <th>標題</th>
                             <th>建立於</th>
