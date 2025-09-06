@@ -103,7 +103,12 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
                 ) : stats.uptime > 0 ? (
                     <UptimeDuration uptime={stats.uptime / 1000} />
                 ) : (
-                    capitalize(status)
+                    {
+                        running: '運行中',
+                        starting: '啟動中',
+                        stopping: '停止中',
+                        offline: '離線',
+                    }[status] || '未知狀態'
                 )}
             </StatBlock>
             <StatBlock icon={faMicrochip} title={'CPU 負載'} color={getBackgroundColor(stats.cpu, limits.cpu)}>

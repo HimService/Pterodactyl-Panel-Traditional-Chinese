@@ -111,7 +111,6 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
                     }[status] || '未知狀態'
                 )}
             </StatBlock>
-
             <StatBlock icon={faMicrochip} title={'CPU 負載'} color={getBackgroundColor(stats.cpu, limits.cpu)}>
                 {status === 'offline' ? (
                     <span className={'text-gray-400'}>離線</span>

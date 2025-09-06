@@ -89,7 +89,7 @@ export default () => {
             TERMINAL_PRELUDE + '\u001b[1m\u001b[41m' + line.replace(/(?:\r\n|\r|\n)$/im, '') + '\u001b[0m'
         );
 
-        const handlePowerChangeEvent = (state: string) => {
+    const handlePowerChangeEvent = (state: string) => {
         const stateText: Record<string, string> = {
             running: '運行中',
             starting: '啟動中',
