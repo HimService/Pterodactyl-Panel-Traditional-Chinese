@@ -32,7 +32,7 @@ echo "2) v1.11.10-測試版"
 echo "3) v1.11.9-測試版"
 echo "4) v1.11.8-測試版"
 echo "5) v1.11.7-測試版"
-read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-4): ${NC}")" version_choice
+read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-5): ${NC}")" version_choice
 
 case $version_choice in
     1)
