@@ -1,6 +1,8 @@
 # Pterodactyl-Panel-繁體中文翻譯
 這是一個適用於翼手龍面板的繁體中文翻譯檔案，可將您的翼手龍面板幾乎翻譯成繁體中文顯示。其他版本仍在翻譯中!
 
+---
+
 ## 當前製作的版本
 - 1.11.11 製作完畢，測試中
 - 1.11.10 製作完畢，優化中
@@ -11,6 +13,7 @@
 - 1.11.5 準備中
 - 1.11.4 準備中
 
+---
 
 ## 安裝注意事項
 請確保版本正確，並已備份面板的resources資料夾
@@ -24,6 +27,9 @@
 ```bash
 bash <(curl -sSL https://raw.githubusercontent.com/HimService/Pterodactyl-Panel-Traditional-Chinese/main/install.sh)
 ```
+
+---
+
 ### 手動安裝
 手動安裝可以確保安裝彈性，但速度較慢。
 
@@ -56,5 +62,27 @@ sudo -u www-data php artisan route:clear
 ```
 恭喜，您已完成面板翻譯替換作業
 
+---
+
 ## 備註
 除了翻譯，我們僅在管理後台的概覽介面添加專案按鈕與文字，其餘與原版相同不做更改，僅做翻譯。
+
+---
+## 演示圖片
+### 檔案管理介面
+![檔案管理介面](example-img/example1.png)
+### 控制台介面
+![控制台介面](example-img/example2.png)
+### 核心管理介面
+![核心管理介面](example-img/example3.png)
+### 用戶管理介面
+![用戶管理介面](example-img/example4.png)
+### 後台管理介面
+![後台介面](example-img/example5.png)
+### 伺服管理介面
+![伺服管理介面](example-img/example6.png)
+### 控制台日誌介面
+![控制台日誌介面](example-img/example7.png)
+### 排程介面
+![排程介面](example-img/example8.png)
+
