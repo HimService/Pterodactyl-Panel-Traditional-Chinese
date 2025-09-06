@@ -89,8 +89,21 @@ export default () => {
             TERMINAL_PRELUDE + '\u001b[1m\u001b[41m' + line.replace(/(?:\r\n|\r|\n)$/im, '') + '\u001b[0m'
         );
 
-    const handlePowerChangeEvent = (state: string) =>
-        terminal.writeln(TERMINAL_PRELUDE + '伺服器標記為 ' + state + '...\u001b[0m');
+        const handlePowerChangeEvent = (state: string) => {
+        const stateText: Record<string, string> = {
+            running: '運行中',
+            starting: '啟動中',
+            stopping: '停止中',
+            offline: '離線',
+        };
+
+        terminal.writeln(
+            TERMINAL_PRELUDE +
+                '伺服器標記為 ' +
+                (stateText[state] || state) +
+                '...\u001b[0m'
+        );
+    };
 
     const handleCommandKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'ArrowUp') {
