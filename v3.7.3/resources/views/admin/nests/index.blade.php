@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('title')
-    Nests
+    巢
 @endsection
 
 @section('content-header')
-    <h1>Nests<small>All nests currently available on this system.</small></h1>
+    <h1>巢<small>此系統上目前可用的所有巢。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Nests</li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li class="active">巢</li>
     </ol>
 @endsection
 
@@ -17,20 +17,20 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Configured Nests</h3>
+                <h3 class="box-title">已設定的巢</h3>
                 <div class="box-tools">
-                    <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#importServiceOptionModal" role="button"><i class="fa fa-upload"></i> Import Egg</a>
-                    <a href="{{ route('admin.nests.new') }}" class="btn btn-primary btn-sm">Create New</a>
+                    <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#importServiceOptionModal" role="button"><i class="fa fa-upload"></i> 匯入環境</a>
+                    <a href="{{ route('admin.nests.new') }}" class="btn btn-primary btn-sm">建立</a>
                 </div>
             </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th class="text-center">Eggs</th>
-                        <th class="text-center">Servers</th>
+                        <th>名稱</th>
+                        <th>說明</th>
+                        <th class="text-center">環境</th>
+                        <th class="text-center">伺服器</th>
                     </tr>
                     @foreach($nests as $nest)
                         <tr>
@@ -51,15 +51,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Import an Egg</h4>
+                <h4 class="modal-title">匯入環境</h4>
             </div>
             <form action="{{ route('admin.nests.egg.import') }}" enctype="multipart/form-data" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="control-label" for="pImportFile">Egg File <span class="field-required"></span></label>
+                        <label class="control-label" for="pImportFile">環境檔案 <span class="field-required"></span></label>
                         <div>
                             <input id="pImportFile" type="file" name="import_file" class="form-control" accept="application/json" />
-                            <p class="small text-muted">Select the <code>.json</code> file for the new egg that you wish to import.</p>
+                            <p class="small text-muted">選擇您要匯入的新環境的 <code>.json</code> 檔案。</p>
                         </div>
                     </div>
                     <div class="form-group">
@@ -76,8 +76,8 @@
                 </div>
                 <div class="modal-footer">
                     {{ csrf_field() }}
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Import</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">匯入</button>
                 </div>
             </form>
         </div>
