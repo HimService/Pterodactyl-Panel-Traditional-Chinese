@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
 @section('title')
-    New Server
+    新伺服器
 @endsection
 
 @section('content-header')
-    <h1>Create Server<small>Add a new server to the panel.</small></h1>
+    <h1>建立伺服器<small>新增伺服器至面板。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li><a href="{{ route('admin.servers') }}">Servers</a></li>
-        <li class="active">Create Server</li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li><a href="{{ route('admin.servers') }}">伺服器</a></li>
+        <li class="active">建立伺服器</li>
     </ol>
 @endsection
 
@@ -19,35 +19,35 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Core Details</h3>
+                    <h3 class="box-title">核心區詳細資訊</h3>
                 </div>
 
                 <div class="box-body row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="pName">Server Name</label>
-                            <input type="text" class="form-control" id="pName" name="name" value="{{ old('name') }}" placeholder="Server Name">
-                            <p class="small text-muted no-margin">Character limits: <code>a-z A-Z 0-9 _ - .</code> and <code>[Space]</code>.</p>
+                            <label for="pName">伺服器名稱</label>
+                            <input type="text" class="form-control" id="pName" name="name" value="{{ old('name') }}" placeholder="伺服器名稱">
+                            <p class="small text-muted no-margin">字元限制：<code>a-z A-Z 0-9 _ - .</code> 和 <code>[空格]</code>。</p>
                         </div>
 
                         <div class="form-group">
-                            <label for="pUserId">Server Owner</label>
+                            <label for="pUserId">伺服器擁有者</label>
                             <select id="pUserId" name="owner_id" class="form-control" style="padding-left:0;"></select>
-                            <p class="small text-muted no-margin">Email address of the Server Owner.</p>
+                            <p class="small text-muted no-margin">伺服器擁有者的電子郵件地址。</p>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="pDescription" class="control-label">Server Description</label>
+                            <label for="pDescription" class="control-label">伺服器描述</label>
                             <textarea id="pDescription" name="description" rows="3" class="form-control">{{ old('description') }}</textarea>
-                            <p class="text-muted small">A brief description of this server.</p>
+                            <p class="text-muted small">此伺服器的簡短描述。</p>
                         </div>
 
                         <div class="form-group">
                             <div class="checkbox checkbox-primary no-margin-bottom">
                                 <input id="pStartOnCreation" name="start_on_completion" type="checkbox" {{ \Pterodactyl\Helpers\Utilities::checked('start_on_completion', 1) }} />
-                                <label for="pStartOnCreation" class="strong">Start Server when Installed</label>
+                                <label for="pStartOnCreation" class="strong">安裝完成後啟動伺服器</label>
                             </div>
                         </div>
                     </div>
@@ -61,12 +61,12 @@
             <div class="box">
                 <div class="overlay" id="allocationLoader" style="display:none;"><i class="fa fa-refresh fa-spin"></i></div>
                 <div class="box-header with-border">
-                    <h3 class="box-title">Allocation Management</h3>
+                    <h3 class="box-title">端口分配管理</h3>
                 </div>
 
                 <div class="box-body row">
                     <div class="form-group col-sm-4">
-                        <label for="pNodeId">Node</label>
+                        <label for="pNodeId">節點</label>
                         <select name="node_id" id="pNodeId" class="form-control">
                             @foreach($locations as $location)
                                 <optgroup label="{{ $location->long }} ({{ $location->short }})">
@@ -81,19 +81,19 @@
                             @endforeach
                         </select>
 
-                        <p class="small text-muted no-margin">The node which this server will be deployed to.</p>
+                        <p class="small text-muted no-margin">此伺服器將部署到的節點。</p>
                     </div>
 
                     <div class="form-group col-sm-4">
-                        <label for="pAllocation">Default Allocation</label>
+                        <label for="pAllocation">預設 IP 分配</label>
                         <select id="pAllocation" name="allocation_id" class="form-control"></select>
-                        <p class="small text-muted no-margin">The main allocation that will be assigned to this server.</p>
+                        <p class="small text-muted no-margin">將分配給此伺服器的主要 IP。</p>
                     </div>
 
                     <div class="form-group col-sm-4">
-                        <label for="pAllocationAdditional">Additional Allocation(s)</label>
+                        <label for="pAllocationAdditional">額外 IP 分配</label>
                         <select id="pAllocationAdditional" name="allocation_additional[]" class="form-control" multiple></select>
-                        <p class="small text-muted no-margin">Additional allocations to assign to this server on creation.</p>
+                        <p class="small text-muted no-margin">建立此伺服器時要分配的額外 IP。</p>
                     </div>
                 </div>
             </div>
@@ -105,30 +105,30 @@
             <div class="box">
                 <div class="overlay" id="allocationLoader" style="display:none;"><i class="fa fa-refresh fa-spin"></i></div>
                 <div class="box-header with-border">
-                    <h3 class="box-title">Application Feature Limits</h3>
+                    <h3 class="box-title">伺服額外功能配置</h3>
                 </div>
 
                 <div class="box-body row">
                     <div class="form-group col-xs-6">
-                        <label for="pDatabaseLimit" class="control-label">Database Limit</label>
+                        <label for="pDatabaseLimit" class="control-label">資料庫限制</label>
                         <div>
                             <input type="text" id="pDatabaseLimit" name="database_limit" class="form-control" value="{{ old('database_limit', 0) }}"/>
                         </div>
-                        <p class="text-muted small">The total number of databases a user is allowed to create for this server.</p>
+                        <p class="text-muted small">允許使用者為此伺服器建立的資料庫總數。</p>
                     </div>
                     <div class="form-group col-xs-6">
-                        <label for="pAllocationLimit" class="control-label">Allocation Limit</label>
+                        <label for="pAllocationLimit" class="control-label">IP 分配限制</label>
                         <div>
                             <input type="text" id="pAllocationLimit" name="allocation_limit" class="form-control" value="{{ old('allocation_limit', 0) }}"/>
                         </div>
-                        <p class="text-muted small">The total number of allocations a user is allowed to create for this server.</p>
+                        <p class="text-muted small">允許使用者為此伺服器建立的 IP 分配總數。</p>
                     </div>
                     <div class="form-group col-xs-6">
-                        <label for="pBackupLimit" class="control-label">Backup Limit</label>
+                        <label for="pBackupLimit" class="control-label">備份限制</label>
                         <div>
                             <input type="text" id="pBackupLimit" name="backup_limit" class="form-control" value="{{ old('backup_limit', 0) }}"/>
                         </div>
-                        <p class="text-muted small">The total number of backups that can be created for this server.</p>
+                        <p class="text-muted small">可以為此伺服器建立的備份總數。</p>
                     </div>
                 </div>
             </div>
@@ -138,84 +138,84 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Resource Management</h3>
+                    <h3 class="box-title">資源管理</h3>
                 </div>
 
                 <div class="box-body row">
                     <div class="form-group col-xs-6">
-                        <label for="pCPU">CPU Limit</label>
+                        <label for="pCPU">CPU 限制</label>
 
                         <div class="input-group">
                             <input type="text" id="pCPU" name="cpu" class="form-control" value="{{ old('cpu', 0) }}" />
                             <span class="input-group-addon">%</span>
                         </div>
 
-                        <p class="text-muted small">If you do not want to limit CPU usage, set the value to <code>0</code>. To determine a value, take the number of threads and multiply it by 100. For example, on a quad core system without hyperthreading <code>(4 * 100 = 400)</code> there is <code>400%</code> available. To limit a server to using half of a single thread, you would set the value to <code>50</code>. To allow a server to use up to two threads, set the value to <code>200</code>.<p>
+                        <p class="text-muted small">若您不想限制 CPU 使用率，請將值設為 <code>0</code>。要確定一個值，請將執行緒數乘以 100。例如，在沒有超執行緒的四核心區系統上 <code>(4 * 100 = 400)</code>，有 <code>400%</code> 的可用資源。要將伺服器限制為使用單個執行緒的一半，您需要將值設為 <code>50</code>。要允許伺服器最多使用兩個執行緒，請將值設為 <code>200</code>。<p>
                     </div>
 
                     <div class="form-group col-xs-6">
-                        <label for="pThreads">CPU Pinning</label>
+                        <label for="pThreads">CPU 核心區綁定</label>
 
                         <div>
                             <input type="text" id="pThreads" name="threads" class="form-control" value="{{ old('threads') }}" />
                         </div>
 
-                        <p class="text-muted small"><strong>Advanced:</strong> Enter the specific CPU threads that this process can run on, or leave blank to allow all threads. This can be a single number, or a comma separated list. Example: <code>0</code>, <code>0-1,3</code>, or <code>0,1,3,4</code>.</p>
+                        <p class="text-muted small"><strong>進階：</strong> 輸入此程序可以運行的特定 CPU 執行緒，或留空以允許所有執行緒。這可以是單個數字，也可以是逗號分隔的列表。例如：<code>0</code>、<code>0-1,3</code> 或 <code>0,1,3,4</code>。</p>
                     </div>
                 </div>
 
                 <div class="box-body row">
                     <div class="form-group col-xs-6">
-                        <label for="pMemory">Memory</label>
+                        <label for="pMemory">記憶體</label>
 
                         <div class="input-group">
                             <input type="text" id="pMemory" name="memory" class="form-control" value="{{ old('memory') }}" />
                             <span class="input-group-addon">MiB</span>
                         </div>
 
-                        <p class="text-muted small">The maximum amount of memory allowed for this container. Setting this to <code>0</code> will allow unlimited memory in a container.</p>
+                        <p class="text-muted small">此容器允許的最大記憶體量。將此值設為 <code>0</code> 將允許容器使用無限的記憶體。</p>
                     </div>
 
                     <div class="form-group col-xs-6">
-                        <label for="pSwap">Swap</label>
+                        <label for="pSwap">虛擬記憶體</label>
 
                         <div class="input-group">
                             <input type="text" id="pSwap" name="swap" class="form-control" value="{{ old('swap', 0) }}" />
                             <span class="input-group-addon">MiB</span>
                         </div>
 
-                        <p class="text-muted small">Setting this to <code>0</code> will disable swap space on this server. Setting to <code>-1</code> will allow unlimited swap.</p>
+                        <p class="text-muted small">將此值設為 <code>0</code> 將停用此伺服器上的虛擬記憶體。設為 <code>-1</code> 將允許無限的虛擬記憶體。</p>
                     </div>
                 </div>
 
                 <div class="box-body row">
                     <div class="form-group col-xs-6">
-                        <label for="pDisk">Disk Space</label>
+                        <label for="pDisk">硬碟空間</label>
 
                         <div class="input-group">
                             <input type="text" id="pDisk" name="disk" class="form-control" value="{{ old('disk') }}" />
                             <span class="input-group-addon">MiB</span>
                         </div>
 
-                        <p class="text-muted small">This server will not be allowed to boot if it is using more than this amount of space. If a server goes over this limit while running it will be safely stopped and locked until enough space is available. Set to <code>0</code> to allow unlimited disk usage.</p>
+                        <p class="text-muted small">如果伺服器使用的空間超過此數量，將不允許開機。如果伺服器在運行時超過此限制，它將被安全地停止並鎖定，直到有足夠的可用空間。設為 <code>0</code> 以允許無限的硬碟使用。</p>
                     </div>
 
                     <div class="form-group col-xs-6">
-                        <label for="pIO">Block IO Weight</label>
+                        <label for="pIO">Block IO 權重</label>
 
                         <div>
                             <input type="text" id="pIO" name="io" class="form-control" value="{{ old('io', 500) }}" />
                         </div>
 
-                        <p class="text-muted small"><strong>Advanced</strong>: The IO performance of this server relative to other <em>running</em> containers on the system. Value should be between <code>10</code> and <code>1000</code>. Please see <a href="https://docs.docker.com/engine/reference/run/#block-io-bandwidth-blkio-constraint" target="_blank">this documentation</a> for more information about it.</p>
+                        <p class="text-muted small"><strong>進階</strong>：此伺服器相對於系統上其他<em>正在運行的</em>容器的 IO 效能。值應介於 <code>10</code> 和 <code>1000</code> 之間。請參閱<a href="https://docs.docker.com/engine/reference/run/#block-io-bandwidth-blkio-constraint" target="_blank">此文件</a>以獲取更多相關資訊。</p>
                     </div>
                     <div class="form-group col-xs-12">
                         <div class="checkbox checkbox-primary no-margin-bottom">
                             <input type="checkbox" id="pOomDisabled" name="oom_disabled" value="0" {{ \Pterodactyl\Helpers\Utilities::checked('oom_disabled', 0) }} />
-                            <label for="pOomDisabled" class="strong">Enable OOM Killer</label>
+                            <label for="pOomDisabled" class="strong">啟用 OOM Killer</label>
                         </div>
 
-                        <p class="small text-muted no-margin">Terminates the server if it breaches the memory limits. Enabling OOM killer may cause server processes to exit unexpectedly.</p>
+                        <p class="small text-muted no-margin">如果伺服器超出記憶體限制，則終止伺服器。啟用 OOM Killer 可能會導致伺服器程序意外退出。</p>
                     </div>
                 </div>
             </div>
@@ -226,12 +226,12 @@
         <div class="col-md-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Nest Configuration</h3>
+                    <h3 class="box-title">核心區態</h3>
                 </div>
 
                 <div class="box-body row">
                     <div class="form-group col-xs-12">
-                        <label for="pNestId">Nest</label>
+                        <label for="pNestId">預設</label>
 
                         <select id="pNestId" name="nest_id" class="form-control">
                             @foreach($nests as $nest)
@@ -243,21 +243,21 @@
                             @endforeach
                         </select>
 
-                        <p class="small text-muted no-margin">Select the Nest that this server will be grouped under.</p>
+                        <p class="small text-muted no-margin">選擇此伺服器將歸入的核心區。</p>
                     </div>
 
                     <div class="form-group col-xs-12">
-                        <label for="pEggId">Egg</label>
+                        <label for="pEggId">核心</label>
                         <select id="pEggId" name="egg_id" class="form-control"></select>
-                        <p class="small text-muted no-margin">Select the Egg that will define how this server should operate.</p>
+                        <p class="small text-muted no-margin">選擇將定義此伺服器應如何運作的核心。</p>
                     </div>
                     <div class="form-group col-xs-12">
                         <div class="checkbox checkbox-primary no-margin-bottom">
                             <input type="checkbox" id="pSkipScripting" name="skip_scripts" value="1" {{ \Pterodactyl\Helpers\Utilities::checked('skip_scripts', 0) }} />
-                            <label for="pSkipScripting" class="strong">Skip Egg Install Script</label>
+                            <label for="pSkipScripting" class="strong">跳過核心安裝腳本</label>
                         </div>
 
-                        <p class="small text-muted no-margin">If the selected Egg has an install script attached to it, the script will run during the install. If you would like to skip this step, check this box.</p>
+                        <p class="small text-muted no-margin">如果所選核心附加了安裝腳本，該腳本將在安裝過程中運行。如果您想跳過此步驟，請勾選此框。</p>
                     </div>
                 </div>
             </div>
@@ -266,15 +266,15 @@
         <div class="col-md-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Docker Configuration</h3>
+                    <h3 class="box-title">Docker 配置</h3>
                 </div>
 
                 <div class="box-body row">
                     <div class="form-group col-xs-12">
-                        <label for="pDefaultContainer">Docker Image</label>
+                        <label for="pDefaultContainer">Docker 映像</label>
                         <select id="pDefaultContainer" name="image" class="form-control"></select>
-                        <input id="pDefaultContainerCustom" name="custom_image" value="{{ old('custom_image') }}" class="form-control" placeholder="Or enter a custom image..." style="margin-top:1rem"/>
-                        <p class="small text-muted no-margin">This is the default Docker image that will be used to run this server. Select an image from the dropdown above, or enter a custom image in the text field above.</p>
+                        <input id="pDefaultContainerCustom" name="custom_image" value="{{ old('custom_image') }}" class="form-control" placeholder="或輸入自訂映像..." style="margin-top:1rem"/>
+                        <p class="small text-muted no-margin">這是將用於運行此伺服器的預設 Docker 映像。從上面的下拉列表中選擇一個映像，或在上面的文字欄位中輸入一個自訂映像。</p>
                     </div>
                 </div>
             </div>
@@ -285,26 +285,26 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Startup Configuration</h3>
+                    <h3 class="box-title">啟動配置</h3>
                 </div>
 
                 <div class="box-body row">
                     <div class="form-group col-xs-12">
-                        <label for="pStartup">Startup Command</label>
+                        <label for="pStartup">啟動指令</label>
                         <input type="text" id="pStartup" name="startup" value="{{ old('startup') }}" class="form-control" />
-                        <p class="small text-muted no-margin">The following data substitutes are available for the startup command: <code>@{{SERVER_MEMORY}}</code>, <code>@{{SERVER_IP}}</code>, and <code>@{{SERVER_PORT}}</code>. They will be replaced with the allocated memory, server IP, and server port respectively.</p>
+                        <p class="small text-muted no-margin">啟動指令可使用以下數據替代：<code>@{{SERVER_MEMORY}}</code>、<code>@{{SERVER_IP}}</code> 和 <code>@{{SERVER_PORT}}</code>。它們將分別被替換為分配的記憶體、伺服器 IP 和伺服器連接埠。</p>
                     </div>
                 </div>
 
                 <div class="box-header with-border" style="margin-top:-10px;">
-                    <h3 class="box-title">Service Variables</h3>
+                    <h3 class="box-title">核心相關變數</h3>
                 </div>
 
                 <div class="box-body row" id="appendVariablesTo"></div>
 
                 <div class="box-footer">
                     {!! csrf_field() !!}
-                    <input type="submit" class="btn btn-success pull-right" value="Create Server" />
+                    <input type="submit" class="btn btn-success pull-right" value="建立伺服器" />
                 </div>
             </div>
         </div>
