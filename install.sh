@@ -85,7 +85,7 @@ fi
 
 # --- 下載與解壓縮 ---
 echo -e "${CYAN}------------------------ [ 下載翻譯檔案 ] -------------------------${NC}"
-DOWNLOAD_URL="https://github.com/HimService/Jexactyl-Panel-Traditional-Chinese/archive/refs/heads/main.zip"
+DOWNLOAD_URL="https://github.com/HimService/Pterodactyl-Panel-Traditional-Chinese/archive/refs/heads/Jexactyl.zip"
 echo -e "${YELLOW}正在從 $DOWNLOAD_URL 下載最新的翻譯儲存庫...${NC}"
 if ! curl -L -o "$TEMP_DIR/repo.zip" "$DOWNLOAD_URL"; then
     echo -e "${RED}下載失敗，請檢查您的網路連線或 URL 是否正確。${NC}"
