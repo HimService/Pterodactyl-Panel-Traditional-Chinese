@@ -27,30 +27,14 @@ echo ""
 # --- 版本選擇 ---
 echo -e "${CYAN}-------------------------- [ 版本選擇 ] ---------------------------${NC}"
 echo -e "${YELLOW}可用的面板翻譯版本：${NC}"
-echo "1) v1.11.11-測試版"
-echo "2) v1.11.10-測試版"
-echo "3) v1.11.9-測試版"
-echo "4) v1.11.8-測試版"
-echo "5) v1.11.7-測試版"
-read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-5): ${NC}")" version_choice
+echo "1) v3.7.3-測試版"
+read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-1): ${NC}")" version_choice
 
 case $version_choice in
     1)
-        VERSION="v1.11.11"
+        VERSION="v3.7.3"
         ;;
-
-    2)
-        VERSION="v1.11.10"
-        ;;
-    3)
-        VERSION="v1.11.9"
-        ;;
-    4)
-        VERSION="v1.11.8"
-        ;;
-    5)
-        VERSION="v1.11.7"
-        ;;    *)
+            *)
         echo -e "${RED}無效的選擇，腳本將終止。${NC}"
         exit 1
         ;;
@@ -112,7 +96,7 @@ if [ -d "resources" ]; then
     echo -e "${GREEN}舊的 resources 資料夾已備份為 $BACKUP_NAME。${NC}"
 fi
 
-SOURCE_RESOURCES="$TEMP_DIR/Jexactyl-Panel-Traditional-Chinese-main/$VERSION/resources"
+SOURCE_RESOURCES="$TEMP_DIR/Pterodactyl-Panel-Traditional-Chinese-Jexactyl/$VERSION/resources"
 
 if [ ! -d "$SOURCE_RESOURCES" ]; then
     echo -e "${RED}錯誤: 找不到來源資料夾 $SOURCE_RESOURCES。${NC}"
