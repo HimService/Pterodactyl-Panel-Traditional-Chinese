@@ -27,28 +27,33 @@ echo ""
 # --- 版本選擇 ---
 echo -e "${CYAN}-------------------------- [ 版本選擇 ] ---------------------------${NC}"
 echo -e "${YELLOW}可用的面板翻譯版本：${NC}"
-echo "1) v1.11.11-測試版"
-echo "2) v1.11.10-測試版"
-echo "3) v1.11.9-測試版"
-echo "4) v1.11.8-測試版"
-echo "5) v1.11.7-測試版"
+echo "1) v1.12.0-測試版"
+echo "2) v1.11.11-測試版"
+echo "3) v1.11.10-測試版"
+echo "4) v1.11.9-測試版"
+echo "5) v1.11.8-測試版"
+echo "6) v1.11.7-測試版"
+
 read -p "$(echo -e "${YELLOW}請選擇要安裝的版本 (1-5): ${NC}")" version_choice
 
 case $version_choice in
     1)
+        VERSION="v1.12.0"
+        ;;
+    2)
         VERSION="v1.11.11"
         ;;
 
-    2)
+    3)
         VERSION="v1.11.10"
         ;;
-    3)
+    4)
         VERSION="v1.11.9"
         ;;
-    4)
+    5)
         VERSION="v1.11.8"
         ;;
-    5)
+    6)
         VERSION="v1.11.7"
         ;;    *)
         echo -e "${RED}無效的選擇，腳本將終止。${NC}"
