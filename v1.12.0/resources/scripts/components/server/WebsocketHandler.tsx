@@ -35,7 +35,7 @@ export default () => {
         socket.on('auth success', () => setConnectionState(true));
         socket.on('SOCKET_CLOSE', () => setConnectionState(false));
         socket.on('SOCKET_CONNECT_ERROR', () => {
-            setError('Failed to connect to websocket instance after multiple attempts: try refreshing the page.');
+            setError('多次嘗試後無法連接到 websocket 實例：請嘗試重新整理頁面。');
         });
         socket.on('SOCKET_ERROR', () => {
             setError('connecting');
@@ -57,7 +57,7 @@ export default () => {
                 updateToken(uuid, socket);
             } else {
                 setError(
-                    'There was an error validating the credentials provided for the websocket. Please refresh the page.'
+                    '驗證提供的 websocket 憑證時發生錯誤。請重新整理頁面。'
                 );
             }
         });
@@ -115,7 +115,7 @@ export default () => {
                         <>
                             <Spinner size={'small'} />
                             <p css={tw`ml-2 text-sm text-red-100`}>
-                                We&apos;re having some trouble connecting to your server, please wait...
+                                我們在連接至您的伺服器時發生了一些困難，請稍後...
                             </p>
                         </>
                     ) : (
