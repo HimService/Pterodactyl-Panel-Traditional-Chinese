@@ -104,7 +104,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                             to={'/auth/password'}
                             css={tw`text-xs text-neutral-500 tracking-wide no-underline uppercase hover:text-neutral-600`}
                         >
-                            Forgot password?
+                            忘記密碼？
                         </Link>
                     </div>
                 </LoginFormContainer>
