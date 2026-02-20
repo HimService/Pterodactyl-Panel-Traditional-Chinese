@@ -46,23 +46,23 @@ export default {
     account: [
         {
             path: '/',
-            name: '帳號',
+            name: 'Account',
             component: AccountOverviewContainer,
             exact: true,
         },
         {
             path: '/api',
-            name: 'API 金鑰',
+            name: 'API Credentials',
             component: AccountApiContainer,
         },
         {
             path: '/ssh',
-            name: 'SSH 金鑰',
+            name: 'SSH Keys',
             component: AccountSSHContainer,
         },
         {
             path: '/activity',
-            name: '活動',
+            name: 'Activity',
             component: ActivityLogContainer,
         },
     ],
@@ -70,14 +70,14 @@ export default {
         {
             path: '/',
             permission: null,
-            name: '控制台',
+            name: 'Console',
             component: ServerConsole,
             exact: true,
         },
         {
             path: '/files',
             permission: 'file.*',
-            name: '檔案',
+            name: 'Files',
             component: FileManagerContainer,
         },
         {
@@ -89,13 +89,13 @@ export default {
         {
             path: '/databases',
             permission: 'database.*',
-            name: '資料庫',
+            name: 'Databases',
             component: DatabasesContainer,
         },
         {
             path: '/schedules',
             permission: 'schedule.*',
-            name: '排程',
+            name: 'Schedules',
             component: ScheduleContainer,
         },
         {
@@ -107,37 +107,37 @@ export default {
         {
             path: '/users',
             permission: 'user.*',
-            name: '子使用者',
+            name: 'Users',
             component: UsersContainer,
         },
         {
             path: '/backups',
             permission: 'backup.*',
-            name: '備份',
+            name: 'Backups',
             component: BackupContainer,
         },
         {
             path: '/network',
             permission: 'allocation.*',
-            name: '網路',
+            name: 'Network',
             component: NetworkContainer,
         },
         {
             path: '/startup',
             permission: 'startup.*',
-            name: '啟動',
+            name: 'Startup',
             component: StartupContainer,
         },
         {
             path: '/settings',
             permission: ['settings.*', 'file.sftp'],
-            name: '設定',
+            name: 'Settings',
             component: SettingsContainer,
         },
         {
             path: '/activity',
             permission: 'activity.*',
-            name: '活動',
+            name: 'Activity',
             component: ServerActivityLogContainer,
         },
     ],
