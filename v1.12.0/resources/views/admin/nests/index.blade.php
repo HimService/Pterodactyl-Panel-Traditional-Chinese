@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('title')
-    Nests
+    核心區
 @endsection
 
 @section('content-header')
-    <h1>Nests<small>All nests currently available on this system.</small></h1>
+    <h1>核心區<small>此系統上目前可用的所有核心區。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Nests</li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li class="active">核心區</li>
     </ol>
 @endsection
 
@@ -16,7 +16,7 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="alert alert-danger">
-            Eggs are a powerful feature of Pterodactyl Panel that allow for extreme flexibility and configuration. Please note that while powerful, modifying an egg wrongly can very easily brick your servers and cause more problems. Please avoid editing our default eggs — those provided by <code>support@pterodactyl.io</code> — unless you are absolutely sure of what you are doing.
+            核心是 翼手龍面板 的一個強大功能，可實現極大的靈活性和配置。請注意，雖然功能強大，但錯誤地修改核心很容易使您的伺服器崩潰並導致更多問題。請避免編輯預設核心 ，由 <code>support@pterodactyl.io</code> 提供的那些。 除非您完全確定您在做什麼。
         </div>
     </div>
 </div>
@@ -24,20 +24,20 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Configured Nests</h3>
+                <h3 class="box-title">已設定的核心區</h3>
                 <div class="box-tools">
-                    <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#importServiceOptionModal" role="button"><i class="fa fa-upload"></i> Import Egg</a>
-                    <a href="{{ route('admin.nests.new') }}" class="btn btn-primary btn-sm">Create New</a>
+                    <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#importServiceOptionModal" role="button"><i class="fa fa-upload"></i> 匯入核心</a>
+                    <a href="{{ route('admin.nests.new') }}" class="btn btn-primary btn-sm">建立新核心區</a>
                 </div>
             </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th class="text-center">Eggs</th>
-                        <th class="text-center">Servers</th>
+                        <th>名稱</th>
+                        <th>描述</th>
+                        <th class="text-center">核心</th>
+                        <th class="text-center">伺服器</th>
                     </tr>
                     @foreach($nests as $nest)
                         <tr>
@@ -58,33 +58,33 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Import an Egg</h4>
+                <h4 class="modal-title">匯入一個核心</h4>
             </div>
             <form action="{{ route('admin.nests.egg.import') }}" enctype="multipart/form-data" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="control-label" for="pImportFile">Egg File <span class="field-required"></span></label>
+                        <label class="control-label" for="pImportFile">核心檔案 <span class="field-required"></span></label>
                         <div>
                             <input id="pImportFile" type="file" name="import_file" class="form-control" accept="application/json" />
-                            <p class="small text-muted">Select the <code>.json</code> file for the new egg that you wish to import.</p>
+                            <p class="small text-muted">選取您希望匯入的新核心的 <code>.json</code> 檔案。</p>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="pImportToNest">Associated Nest <span class="field-required"></span></label>
+                        <label class="control-label" for="pImportToNest">關聯核心區 <span class="field-required"></span></label>
                         <div>
                             <select id="pImportToNest" name="import_to_nest">
                                 @foreach($nests as $nest)
                                    <option value="{{ $nest->id }}">{{ $nest->name }} &lt;{{ $nest->author }}&gt;</option>
                                 @endforeach
                             </select>
-                            <p class="small text-muted">Select the nest that this egg will be associated with from the dropdown. If you wish to associate it with a new nest you will need to create that nest before continuing.</p>
+                            <p class="small text-muted">從下拉選單中選取此核心將關聯的核心區。如果您希望將其與新核心區關聯，則需要在繼續之前建立該核心區。</p>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     {{ csrf_field() }}
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Import</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">匯入</button>
                 </div>
             </form>
         </div>
